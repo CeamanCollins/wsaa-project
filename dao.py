@@ -44,7 +44,7 @@ class StudentDAO:
         cursor = self.getCursor()
         sql = "select * from customers where ID=%d"
         values = [id]
-        cursor.execute(sql,values)
+        cursor.execute(sql, values)
         result = cursor.fetchall()
         self.closeAll()
         return result 
@@ -62,7 +62,7 @@ class StudentDAO:
         cursor.execute(sql,values)
         self.closeAll()
         return "Deleted"
-    def createPizza(self, values,):
+    def createPizza(self, values):
         cursor = self.getCursor()
         sql = "INSERT INTO pizzas (size, base, toppings, customer) values (%s, %s, %s, %s)"
         cursor.execute(sql, values)

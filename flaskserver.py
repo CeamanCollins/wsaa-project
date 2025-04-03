@@ -1,11 +1,11 @@
-from flask import Flask, url_for, request, redirect, abort
+from flask import Flask, url_for, request, redirect, abort, render_template
 import dao
 
-app = Flask(__name__, static_url_path='', static_folder='staticpages')
+app = Flask(__name__, static_url_path='', static_folder='./')
 
 @app.route('/')
 def index():
-    return "Welcome to speedy pizzas, try /pizzas or /menu"
+    return "Welcome to speedy pizzas, try /pizzas or /index.html"
 
 @app.route('/customers', methods=['GET'])
 def get_all_customers():
@@ -13,8 +13,7 @@ def get_all_customers():
 
 @app.route('/customers/<int:id>', methods=['GET'])
 def find_customer_by_id(id):
-    #return dao.studentDAO.findCustomerByID({id})
-    return f"find customer by id: {id}"
+    return dao.studentDAO.findCustomerByID(id)
 
 #create
 @app.route('/customers', methods=['POST'])
@@ -31,7 +30,7 @@ def update_customer():
 #delete
 @app.route('/customers/<int:id>', methods=['DELETE'])
 def delete_customer(id):
-    return dao.studentDAO.deleteCustomer({id})
+    return dao.studentDAO.deleteCustomer(id)
 
 @app.route('/pizzas', methods=['GET'])
 def get_all_pizzas():
