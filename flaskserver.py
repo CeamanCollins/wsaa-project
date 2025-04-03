@@ -13,7 +13,8 @@ def get_all_customers():
 
 @app.route('/customers/<int:id>', methods=['GET'])
 def find_customer_by_id(id):
-    return dao.studentDAO.findCustomerByID({id})
+    #return dao.studentDAO.findCustomerByID({id})
+    return f"find customer by id: {id}"
 
 #create
 @app.route('/customers', methods=['POST'])
@@ -23,7 +24,7 @@ def create_customer():
 
 #update
 @app.route('/customers/<int:id>', methods=['PUT'])
-def update_customer(id):
+def update_customer():
     jsonstring = request.json
     return dao.studentDAO.updateCustomer(jsonstring)
 
