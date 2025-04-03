@@ -13,7 +13,7 @@ def get_all_customers():
 
 @app.route('/customers/<int:id>', methods=['GET'])
 def find_customer_by_id(id):
-    return dao.studentDAO.findCustomerByID(id)
+    return dao.studentDAO.findCustomerByID({id})
 
 #create
 @app.route('/customers', methods=['POST'])
@@ -30,7 +30,7 @@ def update_customer(id):
 #delete
 @app.route('/customers/<int:id>', methods=['DELETE'])
 def delete_customer(id):
-    return dao.studentDAO.deleteCustomer(id)
+    return dao.studentDAO.deleteCustomer({id})
 
 @app.route('/pizzas', methods=['GET'])
 def get_all_pizzas():
@@ -38,7 +38,7 @@ def get_all_pizzas():
 
 @app.route('/pizzas/<int:id>', methods=['GET'])
 def find_pizza_by_id(id):
-    return dao.studentDAO.findPizzaByID(id)
+    return dao.studentDAO.findPizzaByID({id})
 
 #create
 @app.route('/pizzas', methods=['POST'])
@@ -48,14 +48,14 @@ def create_pizza():
 
 #update
 @app.route('/pizzas/<int:id>', methods=['PUT'])
-def update_pizza(id):
+def update_pizza():
     jsonstring = request.json
     return dao.studentDAO.updatePizza(jsonstring)
 
 #delete
 @app.route('/pizzas/<int:id>', methods=['DELETE'])
 def delete_pizza(id):
-    return dao.studentDAO.deletePizza(id)
+    return dao.studentDAO.deletePizza({id})
 
 if __name__ == "__main__":
     app.run(debug=True)
