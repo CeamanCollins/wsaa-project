@@ -332,7 +332,7 @@ function getPizzaFromForm(){
     pizza.size = form.querySelector('select[name="size"]').value
     pizza.base = form.querySelector('select[name="base"]').value
     pizza.toppings = form.querySelector('input[name="toppings"]').value 
-    pizza.customer = form.querySelector('select[name="customer"]').value
+    pizza.customer = form.querySelector('input[name="customer"]').value
     return pizza
 }
 function getCustomerFromForm(){
@@ -360,10 +360,12 @@ function addPizzaToTable(pizza){
     var cell4 = rowElement.insertCell(3);
     cell4.innerHTML = pizza.toppings
     var cell4 = rowElement.insertCell(4);
+    cell4.innerHTML = pizza.status
+    var cell4 = rowElement.insertCell(5);
     cell4.innerHTML = pizza.customer
-    var cell5 = rowElement.insertCell(5);
+    var cell5 = rowElement.insertCell(6);
     cell5.innerHTML = '<button onclick="showUpdatePizza(this)">Update</button>'
-    var cell6 = rowElement.insertCell(6);
+    var cell6 = rowElement.insertCell(7);
     cell6.innerHTML = '<button onclick=doDeletePizza(this)>delete</button>'
 }
 function addCustomerToTable(customer){
