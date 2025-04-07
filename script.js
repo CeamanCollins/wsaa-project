@@ -153,7 +153,24 @@ function hideAll(){
     document.getElementById('viewAllCustomers').style.display="none"
     document.getElementById('registerForm').style.display="none"
     document.getElementById('orderForm').style.display="none"
-
+    document.getElementById('registerInputID').style.display="none"
+}
+function clearRegisterForm(){
+    var form = document.getElementById('registerForm')
+    form.querySelector('input[name="id"]').disabled=false
+    form.querySelector('input[name="id"]').value=''
+    form.querySelector('input[name="name"]').value=''
+    form.querySelector('input[name="address"]').value=''
+    form.querySelector('input[name="phone"]').value=''
+    form.querySelector('input[name="email"]').value=''
+}
+function clearOrderForm(){
+    var form = document.getElementById('orderForm')
+    form.querySelector('input[name="orderId"]').disabled=false
+    form.querySelector('select[name="size"]').value='9&quot;'
+    form.querySelector('select[name="base"]').value='normal'
+    form.querySelector('input[name="toppings"]').value=''
+    form.querySelector('select[name="customer"]').value='1'
 }
 function showViewAllPizzas(){
     hideAll()
@@ -165,29 +182,93 @@ function showViewAllCustomers(){
 }
 function showRegisterForm(){
     hideAll()
+    clearRegisterForm()
     document.getElementById('registerForm').style.display="block"
 }
 function showOrderForm(){
     hideAll()
+    clearOrderForm()
+    document.getElementById('orderInputID').style.display="none"
+    document.getElementById('updateLabelPizza').style.display="none"
     document.getElementById('orderForm').style.display="block"
+    document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
+    document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
 }
-function showUpdatePizza(){
+function showUpdatePizza(button){
     hideAll()
+    document.getElementById('orderInputID').style.display="block"
+    document.getElementById('updateLabelPizza').style.display="block"
     document.getElementById('orderForm').style.display="block"
+    document.getElementById('doCreatePizzaButton').style.display="none"
+    document.getElementById('doUpdatePizzaButton').style.display="block"
+    var rowElement = button.parentNode.parentNode
+    pizza = getPizzaFromRow(rowElement)
+    populateFormWithPizza(pizza)
 }
-function showUpdateCustomer(){
-    document.getElementById('viewAllPizzas').style.display="none"
-    document.getElementById('viewAllCustomers').style.display="none"
-    document.getElementById('registerForm').style.display="none"
-    document.getElementById('orderForm').style.display="block"
+function showUpdateCustomer(button){
+    hideAll()
+    document.getElementById('registerInputID').style.display="block"
+    document.getElementById('registerForm').style.display="block"
+    var rowElement = button.parentNode.parentNode
+    customer = getCustomerFromRow(rowElement)
+    populateFormWithCustomer(customer)
 }
 function showCreateCustomer(){
-    document.getElementById('')
+    document.getElementById('registerForm').style.display="block"
+}
+function getPizzaFromRow(rowElement){
+    var pizza={}
+    pizza.id = rowElement.cells[0].firstChild.textContent
+    pizza.size = rowElement.cells[1].firstChild.textContent
+    pizza.base = rowElement.cells[2].firstChild.textContent
+    pizza.toppings = rowElement.cells[3].firstChild.textContent
+    pizza.customer = rowElement.cells[4].firstChild.textContent
+    return pizza
+}
+function populateFormWithPizza(pizza){
+    var form = document.getElementById('orderForm')
+    form.querySelector('input[name="orderId"]').disabled = true
+    form.querySelector('input[name="orderId"]').value = pizza.id
+    form.querySelector('select[name="size"]').value = pizza.size
+    form.querySelector('select[name="base"]').value = pizza.base
+    form.querySelector('input[name="toppings"]').value = pizza.toppings
+    form.querySelector('select[name="customer"]').value = pizza.customer
+    form.querySelector('select[name="status"]').disabled = false
+}
+function getCustomerFromRow(rowElement){
+    var customer={}
+    customer.id = rowElement.cells[0].firstChild.textContent
+    customer.name = rowElement.cells[1].firstChild.textContent
+    customer.address = rowElement.cells[2].firstChild.textContent
+    customer.phone = rowElement.cells[3].firstChild.textContent
+    customer.email = rowElement.cells[4].firstChild.textContent
+    return customer
+}
+function populateFormWithCustomer(customer){
+    var form = document.getElementById('registerForm')
+    form.querySelector('input[name="id"]').disabled = true
+    form.querySelector('input[name="id"]').value = customer.id
+    form.querySelector('input[name="name"]').value = customer.name
+    form.querySelector('input[name="address"]').value = customer.address
+    form.querySelector('input[name="phone"]').value = customer.phone
+    form.querySelector('input[name="email"]').value = customer.email
+}
+function doDeletePizza(buttonElement){
+    var tableElement = document.getElementById('pizzaTable')
+    var index = buttonElement.parentNode.parentNode.rowIndex;
+    tableElement.deleteRow(index)
+}
+function doDeleteCustomer(buttonElement){
+    var tableElement = document.getElementById('customerTable')
+    var index = buttonElement.parentNode.parentNode.rowIndex;
+    tableElement.deleteRow(index)
+}
+function processGetAllPizzas(result){
+    console.log("in process")
+    console.log(result)
+}
+function processGetAllCustomers(result){
+    console.log(result)
 }
 
-function processGetAllPizzas(result){
-console.log("in process")
-console.log(result)
-}
-getAllPizzas(processGetAllPizzas)
-//getAll()
+

@@ -3,23 +3,24 @@
         <title>
             Speedy Pizzas
         </title>
-        <script src="../script.js"></script>
+        <script src="./script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
         <h1>Speedy Pizzas</h1>
         <div id="menuButtons">
-            <button id="registerButton" onclick="showRegisterForm()">Register as Customer</button>
-            <button id="orderButton" onclick="showOrderForm()">Order</button>
-            <button id="viewPizzasButton" onclick="showViewAllPizzas()">View All Pizzas</button>
             <button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
+            <button id="registerButton" onclick="showRegisterForm()">Register as Customer</button>
+            <button id="viewPizzasButton" onclick="showViewAllPizzas()">View All Pizzas</button>
+            <button id="orderButton" onclick="showOrderForm()">Order Pizza</button>
         </div>
         <div id="viewAllPizzas" style="display:none">
         <table class="table" id="pizzaTable">
             <tr>
                 <th>Order Number</th>
                 <th>Size</th>
+                <th>Base</th>
                 <th>Toppings</th>
                 <th>Customer</th>
                 <th>Update</th>
@@ -27,14 +28,15 @@
             </tr>
             <tr id="p1">
                 <td>1</td>
-                <td>14"</td>
-                <td>pepperoni, ham</td>
+                <td>14&quot;</td>
+                <td>stuffed</td>
+                <td>pepperoni, ham, pineapple</td>
                 <td>1</td>
                 <td>
-                    <button onclick="showUpdate(this)">Update</button>
+                    <button onclick="showUpdatePizza(this)">Update</button>
                 </td>
                 <td>
-                    <button onclick="doDelete(this)">Delete</button>
+                    <button onclick="doDeletePizza(this)">Delete</button>
                 </td>
             </tr>
         </table>
@@ -57,53 +59,61 @@
                     <td>086 444 5555</td>
                     <td>maryb@gmail.com</td>
                     <td>
-                        <button onclick="showUpdate(this)">Update</button>
+                        <button onclick="showUpdateCustomer(this)">Update</button>
                     </td>
                     <td>
-                        <button onclick="doDelete(this)">Delete</button>
+                        <button onclick="doDeleteCustomer(this)">Delete</button>
                     </td>
                 </tr>
             </table>
         </div>
         <div id="registerForm" style="display:none">
             <h2>
-                <span id="create_label">Create a</span>
-                <span id="update_label" style="display:none">Update this</span> Customer
+                <span id="create_label">Create</span>
+                <span id="update_label" style="display:none">Update</span> Customer
             </h2>
-            id <input type="text" name="id"><br/>
+            <span id="registerInputID" style="display: none;">ID<input type="text" name="id"></span>
             Name <input type="text" name="name"><br/>
             Address <input type="text" name="address"><br/>
             Phone <input type="text" name="phone"><br/>
-            Email <input type="text" name="phone"><br/>
-            </select>
+            Email <input type="text" name="email"><br/>
             <br/>
-            <span><!input type="submit" id="createCustomer" value="Create"></span>
             <span><button id="do_create_button" onclick="doCreateCustomer()">Create</button></span>
             <span><button id="do_update_button" onclick="doUpdateCustomer()" style="display:none">Update</button></span>
         </div>
         <div id="orderForm" style="display:none">
             <h2>
                 <span id="updateLabelPizza" style="display:none">Update this</span> Order
-                <span id="createLabelPizza">a Pizza</span>
             </h2>
-            Size <select name="Size">
-                <option value="9\"">9"</option>
-                <option value="12\"">12"</option>
-                <option value="14\"">14"</option>
+            <span id="orderInputID" style="display:none;">Order ID<input type="text" name="orderId"></span>
+            Size <select name="size">
+                <option value="9&quot;">9"</option>
+                <option value="12&quot;">12"</option>
+                <option value="14&quot;">14"</option>
             </select><br/>
-            Author <input type="text" name="author"><br/>
-            Price <input type="text" name="price"><br/>
-            Status<select name="status">
-                <option value="instock">in stock</option>
-                <option value="outstock">out of stock</option>
-                <option value="other">out of print</option>
+            Base <select name="base">
+                <option value="thin">thin</option>
+                <option value="normal">normal</option>
+                <option value="deep pan">deep pan</option>
+                <option value="stuffed">stuffed</option>
             </select><br/>
-            <span><!input type="submit" id="createPizza" value="Create"></span>
-            <span><button id="do_create_button" onclick="doCreatePizza()">Create</button></span>
-            <span><button id="do_update_button" onclick="doUpdatePizza()" style="display:none">Update</button></span>
+            Toppings <input type="text" name="toppings"><br/>
+            Customer <select name="customer">
+                <option value="1">1</option>
+            </select><br/>
+            Status<select name="status" disabled=true>
+                <option value="ordered">ordered</option>
+                <option value="preparing">preparing</option>
+                <option value="ready">ready</option>
+                <option value="delivered">delivered</option>
+            </select><br/>
+            <br/>
+            <span><button id="doCreatePizzaButton" onclick="doCreatePizza()">Create</button></span>
+            <span><button id="doUpdatePizzaButton" onclick="doUpdatePizza()" style="display:none">Update</button></span>
         </div>
         <script>
-        
+            getAllPizzas(processGetAllPizzas)
+            getAllCustomers(processGetAllCustomers)
         </script>
     </body>
 </html>
