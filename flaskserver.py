@@ -44,8 +44,7 @@ def find_pizza_by_id(id):
 @app.route('/pizzas/', methods=['POST'])
 def create_pizza():
     jsonstring = request.json
-    return jsonstring
-    # return dao.studentDAO.createPizza(jsonstring)
+    return dao.studentDAO.createPizza(jsonstring)
 
 #update
 @app.route('/pizzas/<int:id>', methods=['PUT'])
