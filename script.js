@@ -185,7 +185,7 @@ function clearRegisterForm(){
 function clearOrderForm(){
     var form = document.getElementById('orderForm')
     form.querySelector('input[name="orderId"]').disabled=false
-    form.querySelector('select[name="size"]').value='9&quot;'
+    form.querySelector('select[name="size"]').value='12"'
     form.querySelector('select[name="base"]').value='normal'
     form.querySelector('input[name="toppings"]').value=''
     form.querySelector('select[name="customer"]').value='1'
@@ -401,6 +401,18 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     tableElement.deleteRow(index)
+}
+function processGetAllPizzasResponse(result){
+    console.log("in process")
+    for (pizza of result){
+        addPizzaToTable(pizza)
+    }
+}
+function processGetAllCustomersResponse(result){
+    console.log("in process")
+    for (customer of result){
+        addCustomerToTable(pizza)
+    }
 }
 function processGetAllPizzas(result){
     console.log("Getting all pizzas:")
