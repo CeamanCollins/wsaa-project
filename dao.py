@@ -72,7 +72,7 @@ class StudentDAO:
         return "Deleted"
     
     def createPizza(self, pizza):
-        values=(pizza.get("size"),  pizza.get("base", pizza.get("toppings"), pizza.get("status"),pizza.get("customer")))
+        values=(pizza.get("size"),  pizza.get("base"), pizza.get("toppings"), pizza.get("status"),pizza.get("customer")))
         cursor = self.getCursor()
         sql = "INSERT INTO pizzas (size, base, toppings, status, customer) values (%s, %s, %s, %s, %s)"
         cursor.execute(sql, values)
