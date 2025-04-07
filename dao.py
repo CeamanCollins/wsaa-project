@@ -8,11 +8,13 @@ class StudentDAO:
     database = ""
     connection = ""
     cursor =""
+
     def __init__(self):
         self.host=conf.sql['host']
         self.user=conf.sql['user']
         self.password=conf.sql['password']
         self.database=conf.sql['database']
+
     def getCursor(self):
         self.connection = mysql.connector.connect(
         host=self.host,
@@ -22,9 +24,11 @@ class StudentDAO:
         )
         self.cursor = self.connection.cursor()
         return self.cursor
+    
     def closeAll(self):
         self.connection.close()
         self.cursor.close()
+
     def createCusomter(self, values):
         cursor = self.getCursor()
         sql = "INSERT INTO customers (Name, Address, Phone, Email) values (%s, %s, %s, %s)"
@@ -33,6 +37,7 @@ class StudentDAO:
         newid = cursor.lastrowid
         self.closeAll()
         return newid
+    
     def getAllCustomers(self):
         cursor = self.getCursor()
         sql = "select * from customers"
@@ -40,6 +45,7 @@ class StudentDAO:
         result = cursor.fetchall()
         self.closeAll()
         return result
+    
     def findCustomerByID(self, id):
         cursor = self.getCursor()
         sql = "select * from customers where ID = %s"
@@ -47,7 +53,8 @@ class StudentDAO:
         cursor.execute(sql, values)
         result = cursor.fetchall()
         self.closeAll()
-        return result 
+        return result
+    
     def updateCustomer(self, values):
         cursor = self.getCursor()
         sql = "UPDATE customers SET name = %s, address = %s, phone = %s, email = %s WHERE id = %s"
@@ -55,6 +62,7 @@ class StudentDAO:
         self.connection.commit()
         self.closeAll()
         return "Update done!"
+    
     def deleteCustomer(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM customers WHERE ID = %s"
@@ -62,6 +70,7 @@ class StudentDAO:
         cursor.execute(sql,values)
         self.closeAll()
         return "Deleted"
+    
     def createPizza(self, values):
         cursor = self.getCursor()
         sql = "INSERT INTO pizzas (size, base, toppings, customer) values (%s, %s, %s, %s)"
@@ -70,6 +79,7 @@ class StudentDAO:
         newid = cursor.lastrowid
         self.closeAll()
         return newid
+    
     def getAllPizzas(self):
         cursor = self.getCursor()
         sql = "select * from pizzas"
@@ -77,6 +87,7 @@ class StudentDAO:
         result = cursor.fetchall()
         self.closeAll()
         return result
+    
     def findPizzaByID(self, id):
         cursor = self.getCursor()
         sql = "select * from pizzas where ID = %s"
@@ -84,7 +95,8 @@ class StudentDAO:
         cursor.execute(sql,values)
         result = cursor.fetchall()
         self.closeAll()
-        return result 
+        return result
+    
     def updatePizza(self, values):
         cursor = self.getCursor()
         sql = "UPDATE pizzas SET size= %s, base = %s, toppings = %s, customer = %s WHERE id = %s"
@@ -92,6 +104,7 @@ class StudentDAO:
         self.connection.commit()
         self.closeAll()
         return "Update done!"
+    
     def deletePizza(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM pizzas WHERE ID = %s"

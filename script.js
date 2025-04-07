@@ -33,7 +33,7 @@ function getCustomerById(id, callback){
 function createCustomer(customer, callback){
     $.ajax(
         {
-            "url" : "/customers/"+customer.id,
+            "url" : "/customers",
             "method": "POST",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
@@ -117,7 +117,7 @@ function getPizzaById(id, callback){
 function createPizza(pizza, callback){
     $.ajax(
         {
-            "url" : "/pizzas/"+pizza.id,
+            "url" : "/pizzas/",
             "method": "POST",
             "data": JSON.stringify(pizza),
             "dataType": "JSON",
