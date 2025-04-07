@@ -406,7 +406,7 @@ function doDeletePizza(buttonElement){
     var rowElement = buttonElement.parentNode.parentNode;
     id = rowElement.getAttribute("Order Number")
     // deleteCustomer(id)
-    console.log('Delete id='id)
+    console.log('Delete id='+id)
 }
 function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
@@ -415,7 +415,7 @@ function doDeleteCustomer(buttonElement){
     var rowElement = buttonElement.parentNode.parentNode;
     id = rowElement.getAttribute("ID")
     // deleteCustomer(id)
-    console.log('Delete id='id)
+    console.log('Delete id='+id)
 }
 function processGetAllPizzasResponse(result){
     for (pizza of result){
