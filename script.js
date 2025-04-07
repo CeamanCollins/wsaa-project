@@ -188,7 +188,7 @@ function clearOrderForm(){
     form.querySelector('select[name="size"]').value='12"'
     form.querySelector('select[name="base"]').value='normal'
     form.querySelector('input[name="toppings"]').value=''
-    form.querySelector('select[name="customer"]').value='1'
+    form.querySelector('input[name="customer"]').value=''
 }
 function showViewAllPizzas(){
     hideAll()
@@ -389,16 +389,17 @@ function addCustomerToTable(customer){
 }
 function doCreatePizza(){
     pizza = getPizzaFromForm()
-    JSON.stringify(pizza)
+    console.log(JSON.stringify(pizza))
     addPizzaToTable(pizza)
     showViewAllPizzas()
-    createPizza(pizza)
+    // createPizza(pizza)
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()
+    console.log(JSON.stringify(customer))
     addCustomerToTable(customer)
     showViewAllCustomers()
-    createCustomer(customer)
+    // createCustomer(customer)
 }
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
