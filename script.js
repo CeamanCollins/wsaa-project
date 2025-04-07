@@ -233,8 +233,6 @@ function showUpdateCustomer(button){
 }
 function showCreateCustomer(){
     document.getElementById('registerForm').style.display="block"
-<<<<<<< HEAD
-=======
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
@@ -289,7 +287,6 @@ function processGetAllPizzas(result){
 }
 function processGetAllCustomers(result){
     console.log(result)
->>>>>>> 8c9ba62222c70b676367e621f49c4f6de7b86834
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
@@ -373,7 +370,6 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-<<<<<<< HEAD
     rowElement.setAttribute('id',book.id)
 
     var cell1 = rowElement.insertCell(0);
@@ -418,6 +414,3 @@ function doNothing(result){
     console.log("nothing:"+result)
     return "done"
 }
-=======
-
->>>>>>> 8c9ba62222c70b676367e621f49c4f6de7b86834
