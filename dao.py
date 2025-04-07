@@ -80,7 +80,7 @@ class StudentDAO:
     def findPizzaByID(self, id):
         cursor = self.getCursor()
         sql = "select * from pizzas where ID = %s"
-        values = [id]
+        values = (id,)
         cursor.execute(sql,values)
         result = cursor.fetchall()
         self.closeAll()
@@ -95,7 +95,7 @@ class StudentDAO:
     def deletePizza(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM pizzas WHERE ID = %s"
-        values = [id]
+        values = (id,)
         cursor.execute(sql,values)
         self.closeAll()
         return "Deleted"
