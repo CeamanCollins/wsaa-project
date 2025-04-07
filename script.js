@@ -370,7 +370,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('id',book.id)
+    rowElement.setAttribute('id',customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -404,14 +404,27 @@ function doDeleteCustomer(buttonElement){
 }
 function processGetAllPizzasResponse(result){
     console.log("in process")
+    console.log(result)
     for (pizza of result){
-        addPizzaToTable(pizza)
+        displayPizza = {}
+        displayPizza.id = pizza.id
+        displayPizza.size = pizza.size
+        displayPizza.base = pizza.base
+        displayPizza.toppings = pizza.toppings
+        displayPizza.customer = pizza.customer
+        addPizzaToTable(displayPizza)
     }
 }
 function processGetAllCustomersResponse(result){
     console.log("in process")
     for (customer of result){
-        addCustomerToTable(pizza)
+        displayCustomer = {}
+        displayCustomer.id = customer.id
+        displayCustomer.name = customer.name
+        displayCustomer.address = customer.address
+        displayCustomer.phone = customer.phone
+        displayCustomer.email = customer.email
+        addCustomerToTable(displayCustomer)
     }
 }
 function processGetAllPizzas(result){
