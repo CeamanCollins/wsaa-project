@@ -78,8 +78,9 @@ class StudentDAO:
         cursor.execute(sql, values)
         self.connection.commit()
         newid = cursor.lastrowid
+        pizza["id"] = newid
         self.closeAll()
-        return newid
+        return pizza
     
     def getAllPizzas(self):
         cursor = self.getCursor()
