@@ -16,7 +16,7 @@ def find_customer_by_id(id):
     return dao.studentDAO.findCustomerByID(id)
 
 #create
-@app.route('/customers', methods=['POST'])
+@app.route('/customers', methods=['GET', 'POST'])
 def create_customer():
     jsonstring = request.json
     return dao.studentDAO.createCusomter(jsonstring)
@@ -41,7 +41,7 @@ def find_pizza_by_id(id):
     return dao.studentDAO.findPizzaByID(id)
 
 #create
-@app.route('/pizzas', methods=['POST'])
+@app.route('/pizzas', methods=['GET', 'POST'])
 def create_pizza():
     jsonstring = request.json
     return dao.studentDAO.createPizza(jsonstring)

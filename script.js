@@ -392,14 +392,14 @@ function doCreatePizza(){
     console.log(JSON.stringify(pizza))
     addPizzaToTable(pizza)
     showViewAllPizzas()
-    // createPizza(pizza)
+    createPizza(pizza)
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     console.log(JSON.stringify(customer))
     addCustomerToTable(customer)
     showViewAllCustomers()
-    // createCustomer(customer)
+    createCustomer(customer)
 }
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
