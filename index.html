@@ -74,7 +74,7 @@
             </select><br/>
             Toppings <input type="text" name="toppings"><br/>
             Customer Number <input type="text" name="customer"><br/>
-            </select><br/>
+            </select>
             Status<select name="status" disabled=true>
                 <option value="ordered">ordered</option>
                 <option value="preparing">preparing</option>
@@ -87,7 +87,9 @@
         </div>
         <script>
             getAllPizzas(processGetAllPizzasResponse)
+            getAllPizzas(processGetAllPizzas)
             getAllCustomers(processGetAllCustomersResponse)
+            getAllCustomers(processGetAllCustomers)
         </script>
     </body>
 </html>
