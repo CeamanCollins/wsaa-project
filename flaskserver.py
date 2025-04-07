@@ -38,7 +38,7 @@ def get_all_pizzas():
 
 @app.route('/pizzas/<int:id>', methods=['GET'])
 def find_pizza_by_id(id):
-    return dao.studentDAO.findPizzaByID({id})
+    return dao.studentDAO.findPizzaByID(id)
 
 #create
 @app.route('/pizzas', methods=['POST'])
