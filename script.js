@@ -392,21 +392,21 @@ function doCreatePizza(){
     JSON.stringify(pizza)
     addPizzaToTable(pizza)
     showViewAllPizzas()
+    createPizza(pizza)
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     addCustomerToTable(customer)
     showViewAllCustomers()
+    createCustomer(customer)
 }
-
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     tableElement.deleteRow(index)
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute("Order Number")
-    // deleteCustomer(id)
-    console.log('Delete id='+id)
+    id = rowElement.getAttribute("ID")
+    deletePizza(id)
 }
 function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
@@ -414,8 +414,7 @@ function doDeleteCustomer(buttonElement){
     tableElement.deleteRow(index)
     var rowElement = buttonElement.parentNode.parentNode;
     id = rowElement.getAttribute("ID")
-    // deleteCustomer(id)
-    console.log('Delete id='+id)
+    deleteCustomer(id)
 }
 function processGetAllPizzasResponse(result){
     for (pizza of result){
