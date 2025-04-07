@@ -407,11 +407,11 @@ function processGetAllPizzasResponse(result){
     console.log(result)
     for (pizza of result){
         displayPizza = {}
-        displayPizza.id = pizza.id
-        displayPizza.size = pizza.size
-        displayPizza.base = pizza.base
-        displayPizza.toppings = pizza.toppings
-        displayPizza.customer = pizza.customer
+        displayPizza.id = pizza[0]
+        displayPizza.size = pizza[1]
+        displayPizza.base = pizza[2]
+        displayPizza.toppings = pizza[3]
+        displayPizza.customer = pizza[4]
         addPizzaToTable(displayPizza)
     }
 }
@@ -419,11 +419,11 @@ function processGetAllCustomersResponse(result){
     console.log("in process")
     for (customer of result){
         displayCustomer = {}
-        displayCustomer.id = customer.id
-        displayCustomer.name = customer.name
-        displayCustomer.address = customer.address
-        displayCustomer.phone = customer.phone
-        displayCustomer.email = customer.email
+        displayCustomer.id = customer[0]
+        displayCustomer.name = customer[1]
+        displayCustomer.address = customer[2]
+        displayCustomer.phone = customer[3]
+        displayCustomer.email = customer[4]
         addCustomerToTable(displayCustomer)
     }
 }
