@@ -74,7 +74,7 @@ class StudentDAO:
     def createPizza(self, pizza):
         values=(pizza.get("size"), pizza.get("base"), pizza.get("toppings"), pizza.get("status"),pizza.get("customer"))
         cursor = self.getCursor()
-        sql = "INSERT INTO pizzas (size, base, toppings, status, customer) values ('%s', '%s', '%s', '%s', '%s')"
+        sql = "INSERT INTO pizzas (size, base, toppings, status, customer) values (%s, %s, %s, %s, %s)"
         cursor.execute(sql, values)
         self.connection.commit()
         newid = cursor.lastrowid
