@@ -362,9 +362,9 @@ function addPizzaToTable(pizza){
     var cell4 = rowElement.insertCell(4);
     cell4.innerHTML = pizza.customer
     var cell5 = rowElement.insertCell(5);
-    cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+    cell5.innerHTML = '<button onclick="showUpdatePizza(this)">Update</button>'
     var cell6 = rowElement.insertCell(6);
-    cell6.innerHTML = '<button onclick=doDelete(this)>delete</button>'
+    cell6.innerHTML = '<button onclick=doDeletePizza(this)>delete</button>'
 }
 function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
@@ -383,57 +383,69 @@ function addCustomerToTable(customer){
     var cell4 = rowElement.insertCell(4);
     cell4.innerHTML = customer.email
     var cell5 = rowElement.insertCell(5);
-    cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+    cell5.innerHTML = '<button onclick="showUpdateCustomer(this)">Update</button>'
     var cell6 = rowElement.insertCell(6);
-    cell6.innerHTML = '<button onclick=doDelete(this)>delete</button>'
+    cell6.innerHTML = '<button onclick=doDeleteCustomer(this)>delete</button>'
 }
 function doCreatePizza(){
     pizza = getPizzaFromForm()
+    JSON.stringify(pizza)
     addPizzaToTable(pizza)
     showViewAllPizzas()
 }
+function doCreateCustomer(){
+    customer = getCustomerFromForm()
+    addCustomerToTable(customer)
+    showViewAllCustomers()
+}
+
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     tableElement.deleteRow(index)
+    var rowElement = buttonElement.parentNode.parentNode;
+    id = rowElement.getAttribute("Order Number")
+    // deleteCustomer(id)
+    console.log('Delete id='id)
 }
 function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     tableElement.deleteRow(index)
+    var rowElement = buttonElement.parentNode.parentNode;
+    id = rowElement.getAttribute("ID")
+    // deleteCustomer(id)
+    console.log('Delete id='id)
 }
 function processGetAllPizzasResponse(result){
-    console.log("in process")
-    console.log(result)
     for (pizza of result){
-        displayPizza = {}
-        displayPizza.id = pizza[0]
-        displayPizza.size = pizza[1]
-        displayPizza.base = pizza[2]
-        displayPizza.toppings = pizza[3]
-        displayPizza.customer = pizza[4]
+        displayPizza = convertServerPizzaToDisplayPizza(pizza)
         addPizzaToTable(displayPizza)
     }
 }
 function processGetAllCustomersResponse(result){
-    console.log("in process")
     for (customer of result){
-        displayCustomer = {}
-        displayCustomer.id = customer[0]
-        displayCustomer.name = customer[1]
-        displayCustomer.address = customer[2]
-        displayCustomer.phone = customer[3]
-        displayCustomer.email = customer[4]
+        displayCustomer = convertServerCustomertoDisplayCustomer(customer)
         addCustomerToTable(displayCustomer)
     }
 }
-function processGetAllPizzas(result){
-    console.log("Getting all pizzas:")
-    console.log(result)
+function convertServerPizzaToDisplayPizza(pizza){
+    displayPizza = {}
+    displayPizza.id = pizza[0]
+    displayPizza.size = pizza[1]
+    displayPizza.base = pizza[2]
+    displayPizza.toppings = pizza[3]
+    displayPizza.customer = pizza[4]
+    return displayPizza
 }
-function processGetAllCustomers(result){
-    console.log("Getting all customers:")
-    console.log(result)
+function convertServerCustomertoDisplayCustomer(customer){
+    displayCustomer = {}
+    displayCustomer.id = customer[0]
+    displayCustomer.name = customer[1]
+    displayCustomer.address = customer[2]
+    displayCustomer.phone = customer[3]
+    displayCustomer.email = customer[4]
+    return displayCustomer
 }
 function doNothing(result){
     console.log("nothing:"+result)
