@@ -328,7 +328,8 @@ function getPizzaFromForm(){
     pizza.id = form.querySelector('input[name="orderId"]').value
     pizza.size = form.querySelector('select[name="size"]').value
     pizza.base = form.querySelector('select[name="base"]').value
-    pizza.toppings = form.querySelector('input[name="toppings"]').value 
+    pizza.toppings = form.querySelector('input[name="toppings"]').value
+    pizza.status = form.querySelector('select[name="status"]').value
     pizza.customer = form.querySelector('input[name="customer"]').value
     return pizza
 }
@@ -440,7 +441,8 @@ function convertServerPizzaToDisplayPizza(pizza){
     displayPizza.size = pizza[1]
     displayPizza.base = pizza[2]
     displayPizza.toppings = pizza[3]
-    displayPizza.customer = pizza[4]
+    displayPizza.status = pizza[4]
+    displayPizza.customer = pizza[5]
     return displayPizza
 }
 function convertServerCustomertoDisplayCustomer(customer){
