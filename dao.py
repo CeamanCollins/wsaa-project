@@ -34,10 +34,11 @@ class StudentDAO:
         cursor = self.getCursor()
         sql = "INSERT INTO customers (Name, Address, Phone, Email) values (%s, %s, %s, %s)"
         cursor.execute(sql, values)
-        self.connection.commit()
         newid = cursor.lastrowid
+        customer['id'] = newid
+        self.connection.commit()
         self.closeAll()
-        return newid
+        return customer
     
     def getAllCustomers(self):
         cursor = self.getCursor()
@@ -79,9 +80,9 @@ class StudentDAO:
         cursor = self.getCursor()
         sql = "INSERT INTO pizzas (size, base, toppings, status, customer) values (%s, %s, %s, %s, %s)"
         cursor.execute(sql, values)
-        self.connection.commit()
         newid = cursor.lastrowid
         pizza["id"] = newid
+        self.connection.commit()
         self.closeAll()
         return pizza
     
