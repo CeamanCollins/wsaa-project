@@ -49,7 +49,7 @@ class StudentDAO:
     
     def findCustomerByID(self, id):
         cursor = self.getCursor()
-        sql = "select * from customers where ID = %d"
+        sql = "select * from customers where ID = %s"
         values = (int(id),)
         cursor.execute(sql, values)
         result = cursor.fetchall()
@@ -59,7 +59,7 @@ class StudentDAO:
     def updateCustomer(self, customer):
         values = (customer['name'], customer['address'], customer['phone'], customer['email'], customer['id'])
         cursor = self.getCursor()
-        sql = "UPDATE customers SET name = %s, address = %s, phone = %s, email = %s WHERE id = %d"
+        sql = "UPDATE customers SET name = %s, address = %s, phone = %s, email = %s WHERE id = %s"
         cursor.execute(sql,values)
         self.connection.commit()
         self.closeAll()
@@ -67,7 +67,7 @@ class StudentDAO:
     
     def deleteCustomer(self, id):
         cursor = self.getCursor()
-        sql = "DELETE FROM customers WHERE ID = %d"
+        sql = "DELETE FROM customers WHERE ID = %s"
         values = (int(id),)
         cursor.execute(sql,values)
         self.closeAll()
@@ -94,7 +94,7 @@ class StudentDAO:
     
     def findPizzaByID(self, id):
         cursor = self.getCursor()
-        sql = "select * from pizzas where ID = %d"
+        sql = "select * from pizzas where ID = %s"
         values = (int(id),)
         cursor.execute(sql,values)
         result = cursor.fetchall()
@@ -104,7 +104,7 @@ class StudentDAO:
     def updatePizza(self, pizza):
         values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['customer'], pizza['id'])
         cursor = self.getCursor()
-        sql = "UPDATE pizzas SET size= %s, base = %s, toppings = %s, customer = %s WHERE id = %d"
+        sql = "UPDATE pizzas SET size= %s, base = %s, toppings = %s, customer = %s WHERE id = %s"
         cursor.execute(sql,values)
         self.connection.commit()
         self.closeAll()
@@ -112,7 +112,7 @@ class StudentDAO:
     
     def deletePizza(self, id):
         cursor = self.getCursor()
-        sql = "DELETE FROM pizzas WHERE ID = %d"
+        sql = "DELETE FROM pizzas WHERE ID = %s"
         values = (int(id),)
         cursor.execute(sql,values)
         self.closeAll()
