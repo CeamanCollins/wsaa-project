@@ -50,7 +50,7 @@ function createCustomer(customer, callback){
 function updateCustomer(customer, callback){
     $.ajax(
         {
-            "url" : "/customers/"id,
+            "url" : "/customers/"+customer.id,
             "method": "PUT",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
