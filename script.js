@@ -142,6 +142,9 @@ function updatePizza(pizza, callback){
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
+                var tableElement = document.getElementById('pizzaTable')
+                var rowElement = tableElement.
+                addPizzaToTable(result)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -235,6 +238,7 @@ function showUpdateCustomer(button){
     populateFormWithCustomer(customer)
 }
 function showCreateCustomer(){
+    hideAll()
     document.getElementById('registerForm').style.display="block"
 }
 function getPizzaFromRow(rowElement){
@@ -253,9 +257,9 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
-    form.querySelector('select[name="customer"]').value = pizza.customer
     form.querySelector('select[name="status"]').disabled = pizza.status
     form.querySelector('select[name="status"]').disabled = false
+    form.querySelector('select[name="customer"]').value = pizza.customer
 }
 function getCustomerFromRow(rowElement){
     var customer={}
@@ -284,6 +288,33 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     tableElement.deleteRow(index)
+}
+function doUpdatePizza(buttonElement){
+    var pizza = getPizzaFromForm()
+    var rowElement = document.getElementById('pizza'+pizza.id)
+    setPizzaInRow(rowElement,pizza)
+    updatePizza(pizza)
+}
+function doUpdateCustomer(buttonElement){
+    var customer = getCustomerFromForm()
+    var rowElement = document.getElementById('customer'+customer.id)
+    setPizzaInRow(rowElement,pizza)
+    updateCustomer(customer)
+}
+function setPizzaInRow(rowElement, pizza){
+    rowElement.cells[0] = pizza.id
+    rowElement.cells[1] = pizza.size 
+    rowElement.cells[2] = pizza.base
+    rowElement.cells[3] = pizza.toppings
+    rowElement.cells[4] = pizza.status
+    rowElement.cells[5] = pizza.customer
+}
+function setCustomerinRow(rowElement, customer){
+    rowElement.cells[0] = customer.id
+    rowElement.cells[1] = customer.name
+    rowElement.cells[2] = customer.address
+    rowElement.cells[3] = customer.phone
+    rowElement.cells[4] = customer.email
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
@@ -348,7 +379,7 @@ function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
     
-    rowElement.setAttribute('id',pizza.id)
+    rowElement.setAttribute('pizzaId','pizza'+pizza.id)
     
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
@@ -371,7 +402,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('id',customer.id)
+    rowElement.setAttribute('customerId','customer'+customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -404,17 +435,17 @@ function doCreateCustomer(){
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
-    tableElement.deleteRow(index)
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute("ID")
+    id = rowElement.getAttribute("pizzaId")
+    tableElement.deleteRow(index)
     deletePizza(id)
 }
 function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
-    tableElement.deleteRow(index)
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute("ID")
+    id = rowElement.getAttribute("customerId")
+    tableElement.deleteRow(index)
     deleteCustomer(id)
 }
 function processGetAllPizzas(result){

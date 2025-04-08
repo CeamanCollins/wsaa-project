@@ -99,7 +99,8 @@ class StudentDAO:
         self.closeAll()
         return result
     
-    def updatePizza(self, values):
+    def updatePizza(self, pizza):
+        values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['customer'], pizza['id'])
         cursor = self.getCursor()
         sql = "UPDATE pizzas SET size= %s, base = %s, toppings = %s, customer = %s WHERE id = %s"
         cursor.execute(sql,values)
