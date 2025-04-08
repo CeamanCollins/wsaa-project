@@ -33,7 +33,7 @@ function getCustomerById(id, callback){
 function createCustomer(customer, callback){
     $.ajax(
         {
-            "url" : "/customers",
+            "url" : "/customers/",
             "method": "POST",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
@@ -369,7 +369,7 @@ function getCustomerFromForm(){
     customer.address = form.querySelector('input[name="address"]').value
     customer.phone = form.querySelector('input[name="phone"]').value
     customer.email = form.querySelector('input[name="email"]').value
-    return pizza
+    return customer
 }
 function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
@@ -424,7 +424,7 @@ function doCreatePizza(){
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     console.log(JSON.stringify(customer))
-    createCustomer(customer)
+    createCustomer(customer,doNothing)
     showViewAllCustomers()
 }
 function doDeletePizza(buttonElement){
