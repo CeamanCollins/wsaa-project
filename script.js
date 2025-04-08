@@ -430,7 +430,7 @@ function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.cells[0]
+    id = rowElement.cells[0].value
     tableElement.deleteRow(index)
     deletePizza(id)
 }
