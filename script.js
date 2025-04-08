@@ -155,7 +155,7 @@ function updatePizza(pizza, callback){
 function deletePizza(id, callback){
     $.ajax(
         {
-            "url" : "/customers/"+id,
+            "url" : "/pizzas/"+id,
             "method": "DELETE",
             "data": "",
             "dataType": "JSON",
