@@ -124,7 +124,8 @@ function createPizza(pizza, callback){
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
-                addPizzaToTable(result)
+                pizza.id = result.id
+                addPizzaToTable(pizza)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -415,9 +416,7 @@ function addCustomerToTable(customer){
 function doCreatePizza(){
     pizza = getPizzaFromForm()
     console.log(JSON.stringify(pizza))
-    pizza = createPizza(pizza)
-    console.log(JSON.stringify(pizza))
-    addPizzaToTable(pizza)
+    createPizza(pizza, doNothing)
     showViewAllPizzas()
 }
 function doCreateCustomer(){
