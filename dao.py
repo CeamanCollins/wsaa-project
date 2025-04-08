@@ -50,7 +50,7 @@ class StudentDAO:
     def findCustomerByID(self, id):
         cursor = self.getCursor()
         sql = "select * from customers where ID = %s"
-        values = (int(id),)
+        values = (id,)
         cursor.execute(sql, values)
         result = cursor.fetchall()
         self.closeAll()
@@ -68,8 +68,9 @@ class StudentDAO:
     def deleteCustomer(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM customers WHERE ID = %s"
-        values = (int(id),)
+        values = (id,)
         cursor.execute(sql,values)
+        self.connection.commit()
         self.closeAll()
         return "Deleted"
     
@@ -95,7 +96,7 @@ class StudentDAO:
     def findPizzaByID(self, id):
         cursor = self.getCursor()
         sql = "select * from pizzas where ID = %s"
-        values = (int(id),)
+        values = (id,)
         cursor.execute(sql,values)
         result = cursor.fetchall()
         self.closeAll()
@@ -113,8 +114,9 @@ class StudentDAO:
     def deletePizza(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM pizzas WHERE ID = %s"
-        values = (int(id),)
+        values = (id,)
         cursor.execute(sql,values)
+        self.connection.commit()
         self.closeAll()
         return "Deleted"
 
