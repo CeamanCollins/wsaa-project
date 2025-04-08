@@ -415,7 +415,9 @@ function addCustomerToTable(customer){
 function doCreatePizza(){
     pizza = getPizzaFromForm()
     console.log(JSON.stringify(pizza))
-    pizza = createPizza(pizza, doNothing())
+    pizza = createPizza(pizza)
+    pizza = JSON.stringify(pizza)
+    console.log(pizza)
     addPizzaToTable(pizza)
     showViewAllPizzas()
 }
