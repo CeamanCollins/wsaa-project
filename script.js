@@ -40,6 +40,8 @@ function createCustomer(customer, callback){
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
+                customer.id = result.id
+                addCustomerToTable(customer)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -422,9 +424,8 @@ function doCreatePizza(){
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     console.log(JSON.stringify(customer))
-    addCustomerToTable(customer)
-    showViewAllCustomers()
     createCustomer(customer)
+    showViewAllCustomers()
 }
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
