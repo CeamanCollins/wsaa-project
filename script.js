@@ -50,7 +50,7 @@ function createCustomer(customer, callback){
 function updateCustomer(customer, callback){
     $.ajax(
         {
-            "url" : "/customers/"+customer.id,
+            "url" : "/customers/"id,
             "method": "PUT",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
@@ -67,7 +67,7 @@ function updateCustomer(customer, callback){
 function deleteCustomer(id, callback){
     $.ajax(
         {
-            "url" : "/customers/"+customer.id,
+            "url" : "/customers/"+id,
             "method": "DELETE",
             "data": "",
             "dataType": "JSON",
@@ -155,7 +155,7 @@ function updatePizza(pizza, callback){
 function deletePizza(id, callback){
     $.ajax(
         {
-            "url" : "/customers/"+customer.id,
+            "url" : "/customers/"+id,
             "method": "DELETE",
             "data": "",
             "dataType": "JSON",
@@ -415,8 +415,9 @@ function addCustomerToTable(customer){
 function doCreatePizza(){
     pizza = getPizzaFromForm()
     console.log(JSON.stringify(pizza))
-    showViewAllPizzas()
     createPizza(pizza, doNothing())
+    addPizzaToTable(pizza)
+    showViewAllPizzas()
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()

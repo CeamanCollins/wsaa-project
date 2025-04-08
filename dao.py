@@ -49,7 +49,7 @@ class StudentDAO:
     def findCustomerByID(self, id):
         cursor = self.getCursor()
         sql = "select * from customers where ID = %s"
-        values = [id]
+        values = (id,)
         cursor.execute(sql, values)
         result = cursor.fetchall()
         self.closeAll()
@@ -66,7 +66,7 @@ class StudentDAO:
     def deleteCustomer(self, id):
         cursor = self.getCursor()
         sql = "DELETE FROM customers WHERE ID = %s"
-        values = [id]
+        values = (id,)
         cursor.execute(sql,values)
         self.closeAll()
         return "Deleted"

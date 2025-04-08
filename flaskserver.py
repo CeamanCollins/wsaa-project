@@ -55,7 +55,7 @@ def update_pizza():
 #delete
 @app.route('/pizzas/<int:id>', methods=['DELETE'])
 def delete_pizza(id):
-    return dao.studentDAO.deletePizza({id})
+    return dao.studentDAO.deletePizza(id)
 
 if __name__ == "__main__":
     app.run(debug=True)
