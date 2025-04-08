@@ -372,7 +372,7 @@ function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
     
-    rowElement.setAttribute('pizzaId','pizza'+pizza.id)
+    rowElement.setAttribute('pizzaId',pizza.id)
     
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
@@ -395,7 +395,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('customerId','customer'+customer.id)
+    rowElement.setAttribute('customerId',customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -430,7 +430,7 @@ function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('id')
+    id = rowElement.getAttribute('pizzaId')
     tableElement.deleteRow(index)
     deletePizza(id)
 }
@@ -438,7 +438,7 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('id')
+    id = rowElement.getAttribute('customerId')
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
