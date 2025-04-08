@@ -279,27 +279,29 @@ function populateFormWithCustomer(customer){
     form.querySelector('input[name="phone"]').value = customer.phone
     form.querySelector('input[name="email"]').value = customer.email
 }
-function doDeletePizza(buttonElement){
-    var tableElement = document.getElementById('pizzaTable')
-    var index = buttonElement.parentNode.parentNode.rowIndex;
-    tableElement.deleteRow(index)
-}
-function doDeleteCustomer(buttonElement){
-    var tableElement = document.getElementById('customerTable')
-    var index = buttonElement.parentNode.parentNode.rowIndex;
-    tableElement.deleteRow(index)
-}
+// function doDeletePizza(buttonElement){
+//     var tableElement = document.getElementById('pizzaTable')
+//     var index = buttonElement.parentNode.parentNode.rowIndex;
+//     tableElement.deleteRow(index)
+// }
+// function doDeleteCustomer(buttonElement){
+//     var tableElement = document.getElementById('customerTable')
+//     var index = buttonElement.parentNode.parentNode.rowIndex;
+//     tableElement.deleteRow(index)
+// }
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
     var rowElement = document.getElementById('pizza'+pizza.id)
     setPizzaInRow(rowElement,pizza)
     updatePizza(pizza)
+    showViewAllPizzas()
 }
 function doUpdateCustomer(buttonElement){
     var customer = getCustomerFromForm()
     var rowElement = document.getElementById('customer'+customer.id)
     setPizzaInRow(rowElement,pizza)
     updateCustomer(customer)
+    showViewAllCustomers()
 }
 function setPizzaInRow(rowElement, pizza){
     rowElement.cells[0] = pizza.id
@@ -333,17 +335,8 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
-    form.querySelector('select[name="customer"]').value = pizza.customer
+    form.querySelector('input[name="customer"]').value = pizza.customer
     form.querySelector('select[name="status"]').disabled = false
-}
-function getCustomerFromRow(rowElement){
-    var customer={}
-    customer.id = rowElement.cells[0].firstChild.textContent
-    customer.name = rowElement.cells[1].firstChild.textContent
-    customer.address = rowElement.cells[2].firstChild.textContent
-    customer.phone = rowElement.cells[3].firstChild.textContent
-    customer.email = rowElement.cells[4].firstChild.textContent
-    return customer
 }
 function populateFormWithCustomer(customer){
     var form = document.getElementById('registerForm')
@@ -436,7 +429,7 @@ function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute("pizzaId")
+    id = rowElement.cells[0]
     tableElement.deleteRow(index)
     deletePizza(id)
 }
@@ -444,7 +437,7 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute("customerId")
+    id = rowElement.cells[0]
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
