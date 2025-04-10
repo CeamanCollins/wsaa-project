@@ -204,7 +204,7 @@ function showViewAllCustomers(){
 function showRegisterForm(){
     hideAll()
     clearRegisterForm()
-    document.getElementById('doCreateCustomerButton').style.display="none"
+    document.getElementById('doCreateCustomerButton').style.display="block"
     document.getElementById('doUpdateCustomerButton').style.display="none"
     document.getElementById('registerForm').style.display="block"
 }
