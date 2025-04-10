@@ -328,6 +328,7 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
     form.querySelector('input[name="customer"]').value = pizza.customer
+    form.querySelector('select[name="status"]').value = pizza.status
     form.querySelector('select[name="status"]').disabled = false
 }
 function populateFormWithCustomer(customer){
