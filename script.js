@@ -59,9 +59,6 @@ function updateCustomer(customer, callback){
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
-                var tableElement = document.getElementById('customerTable')
-                var rowElement = tableElement.getElementById('customer'+customer.id)
-                setCustomerinRow(rowElement,customer)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -148,9 +145,6 @@ function updatePizza(pizza, callback){
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
-                var tableElement = document.getElementById('pizzaTable')
-                var rowElement = tableElement.getElementById('pizza'+pizza.id)
-                setPizzaInRow(rowElement, pizza)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -289,6 +283,11 @@ function populateFormWithCustomer(customer){
 }
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
+    var tableElement = document.getElementById('pizzaTable')
+    var rowElement = tableElement.getElementById('pizza'+pizza.id)
+    console.log(rowElement)
+    console.log(pizza)
+    setPizzaInRow(rowElement, pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
