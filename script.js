@@ -300,20 +300,19 @@ function doUpdateCustomer(){
     showViewAllCustomers()
 }
 function setPizzaInRow(rowElement, pizza){
-    rowElement.cells[0] = pizza.id
-    rowElement.cells[1] = pizza.size 
-    rowElement.cells[2] = pizza.base
-    rowElement.cells[3] = pizza.toppings
-    console.log(rowElement.cells[3])
-    rowElement.cells[4] = pizza.status
-    rowElement.cells[5] = pizza.customer
+    rowElement.cells[0].firstChild.textContent = pizza.id
+    rowElement.cells[1].firstChild.textContent = pizza.size 
+    rowElement.cells[2].firstChild.textContent = pizza.base
+    rowElement.cells[3].firstChild.textContent = pizza.toppings
+    rowElement.cells[4].firstChild.textContent = pizza.status
+    rowElement.cells[5].firstChild.textContent = pizza.customer
 }
 function setCustomerInRow(rowElement, customer){
-    rowElement.cells[0] = customer.id
-    rowElement.cells[1] = customer.name
-    rowElement.cells[2] = customer.address
-    rowElement.cells[3] = customer.phone
-    rowElement.cells[4] = customer.email
+    rowElement.cells[0].firstChild.textContent = customer.id
+    rowElement.cells[1].firstChild.textContent = customer.name
+    rowElement.cells[2].firstChild.textContent = customer.address
+    rowElement.cells[3].firstChild.textContent = customer.phone
+    rowElement.cells[4].firstChild.textContent = customer.email
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
