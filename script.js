@@ -404,7 +404,7 @@ function addCustomerToTable(customer){
     var cell5 = rowElement.insertCell(5);
     cell5.innerHTML = '<button onclick="showUpdateCustomer(this)">Update</button>'
     var cell6 = rowElement.insertCell(6);
-    cell6.innerHTML = '<button onclick=doDeleteCustomer(this)>delete</button>'
+    cell6.innerHTML = '<button onclick=doDeleteCustomer(this)>Delete</button>'
 }
 function doCreatePizza(){
     pizza = getPizzaFromForm()
