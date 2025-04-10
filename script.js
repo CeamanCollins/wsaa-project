@@ -233,6 +233,8 @@ function showUpdateCustomer(button){
     hideAll()
     document.getElementById('registerInputID').style.display="block"
     document.getElementById('registerForm').style.display="block"
+    document.getElementById('doCreateCustomerButton').style.display="none"
+    document.getElementById('doUpdateCustomerButton').style.display="block"
     var rowElement = button.parentNode.parentNode
     customer = getCustomerFromRow(rowElement)
     populateFormWithCustomer(customer)
