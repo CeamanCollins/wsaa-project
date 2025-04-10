@@ -242,6 +242,8 @@ function showUpdateCustomer(button){
 function showCreateCustomer(){
     hideAll()
     document.getElementById('registerForm').style.display="block"
+    document.getElementById('doCreateCustomerButton').style.display="block"
+    document.getElementById('doUpdateCustomerButton').style.display="none"
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
