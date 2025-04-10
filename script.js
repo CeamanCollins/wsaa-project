@@ -217,6 +217,8 @@ function showOrderForm(){
     document.getElementById('orderInputID').style.display="none"
     document.getElementById('updateLabelPizza').style.display="none"
     document.getElementById('orderForm').style.display="block"
+    document.getElementById('doCreatePizzaButton').style.display="block"
+    document.getElementById('doUpdatePizzaButton').style.display="none"
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
 }
@@ -282,16 +284,6 @@ function populateFormWithCustomer(customer){
     form.querySelector('input[name="phone"]').value = customer.phone
     form.querySelector('input[name="email"]').value = customer.email
 }
-// function doDeletePizza(buttonElement){
-//     var tableElement = document.getElementById('pizzaTable')
-//     var index = buttonElement.parentNode.parentNode.rowIndex;
-//     tableElement.deleteRow(index)
-// }
-// function doDeleteCustomer(buttonElement){
-//     var tableElement = document.getElementById('customerTable')
-//     var index = buttonElement.parentNode.parentNode.rowIndex;
-//     tableElement.deleteRow(index)
-// }
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
     var rowElement = document.getElementById('pizza'+pizza.id)
@@ -375,7 +367,7 @@ function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
     
-    rowElement.setAttribute('pizzaId',pizza.id)
+    rowElement.setAttribute('id','pizza'+pizza.id)
     
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
@@ -398,7 +390,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('customerId',customer.id)
+    rowElement.setAttribute('id','customer'+customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
