@@ -204,6 +204,8 @@ function showViewAllCustomers(){
 function showRegisterForm(){
     hideAll()
     clearRegisterForm()
+    document.getElementById('doCreateCustomerButton').style.display="none"
+    document.getElementById('doUpdateCustomerButton').style.display="none"
     document.getElementById('registerForm').style.display="block"
 }
 function showOrderForm(){
@@ -238,12 +240,6 @@ function showUpdateCustomer(button){
     var rowElement = button.parentNode.parentNode
     customer = getCustomerFromRow(rowElement)
     populateFormWithCustomer(customer)
-}
-function showCreateCustomer(){
-    hideAll()
-    document.getElementById('registerForm').style.display="block"
-    document.getElementById('doCreateCustomerButton').style.display="block"
-    document.getElementById('doUpdateCustomerButton').style.display="none"
 }
 function getPizzaFromRow(rowElement){
     var pizza={}
