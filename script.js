@@ -281,14 +281,14 @@ function populateFormWithCustomer(customer){
 }
 function doUpdatePizza(){
     var pizza = getPizzaFromForm()
-    var rowElement = document.getElementById(pizza.id)
+    var rowElement = document.getElementById('pizza'+pizza.id)
     setPizzaInRow(rowElement, pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
 function doUpdateCustomer(){
     var customer = getCustomerFromForm()
-    var rowElement = document.getElementById(customer.id)
+    var rowElement = document.getElementById('customer'+customer.id)
     setCustomerInRow(rowElement, customer)
     updateCustomer(customer,doNothing())
     showViewAllCustomers()
@@ -363,7 +363,7 @@ function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
     
-    rowElement.setAttribute('id', pizza.id)
+    rowElement.setAttribute('id', 'pizza'+pizza.id)
     
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
@@ -386,7 +386,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('id',customer.id)
+    rowElement.setAttribute('id','customer'+customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -417,7 +417,8 @@ function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('id')
+    id = rowElement.cells[0].innerHTML
+    console.log(id)
     tableElement.deleteRow(index)
     deletePizza(id)
 }
@@ -425,7 +426,8 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('id')
+    id = rowElement.cell[0].innerHTML
+    console.log(id)
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
