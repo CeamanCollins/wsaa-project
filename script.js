@@ -426,7 +426,7 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.cell[0].innerHTML
+    id = rowElement.cells[0].innerHTML
     console.log(id)
     tableElement.deleteRow(index)
     deleteCustomer(id)
