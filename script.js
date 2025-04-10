@@ -75,7 +75,6 @@ function deleteCustomer(id, callback){
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success": function(result){
-                console.log(result);
                 callback(result)
             },
             "error": function(xhr,status,error){
@@ -161,7 +160,6 @@ function deletePizza(id, callback){
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success": function(result){
-                console.log(result);
                 callback(result)
             },
             "error": function(xhr,status,error){
@@ -408,13 +406,11 @@ function addCustomerToTable(customer){
 }
 function doCreatePizza(){
     pizza = getPizzaFromForm()
-    console.log(JSON.stringify(pizza))
     createPizza(pizza, doNothing)
     showViewAllPizzas()
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()
-    console.log(JSON.stringify(customer))
     createCustomer(customer,doNothing)
     showViewAllCustomers()
 }
@@ -433,12 +429,6 @@ function doDeleteCustomer(buttonElement){
     id = rowElement.getAttribute('customerId')
     tableElement.deleteRow(index)
     deleteCustomer(id)
-}
-function processGetAllPizzas(result){
-    console.log(result)
-}
-function processGetAllCustomers(result){
-    console.log(result)
 }
 function processGetAllPizzasResponse(result){
     for (pizza of result){
