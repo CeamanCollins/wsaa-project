@@ -289,8 +289,6 @@ function populateFormWithCustomer(customer){
 }
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
-    console.log(rowElement)
-    console.log(pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
