@@ -284,7 +284,7 @@ function populateFormWithCustomer(customer){
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
     // var tableElement = document.getElementById('pizzaTable')
-    var rowElement = document.getElementById('pizza'+pizza.id)
+    var rowElement = document.getElementByID('pizza'+pizza.id)
     console.log(rowElement)
     console.log(pizza)
     setPizzaInRow(rowElement, pizza)
@@ -293,7 +293,7 @@ function doUpdatePizza(buttonElement){
 }
 function doUpdateCustomer(buttonElement){
     var customer = getCustomerFromForm()
-    var rowElement = document.getElementById('customer'+customer.id)
+    var rowElement = document.getElementByID('customer'+customer.id)
     updateCustomer(customer,doNothing())
     showViewAllCustomers()
 }
