@@ -285,8 +285,6 @@ function doUpdatePizza(){
     var pizza = getPizzaFromForm()
     var rowElementId = 'pizza' + pizza.id
     var rowElement = document.getElementById(rowElementId)
-    console.log(rowElement)
-    console.log(pizza)
     setPizzaInRow(rowElement, pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
@@ -385,7 +383,7 @@ function addPizzaToTable(pizza){
     var cell5 = rowElement.insertCell(6);
     cell5.innerHTML = '<button onclick="showUpdatePizza(this)">Update</button>'
     var cell6 = rowElement.insertCell(7);
-    cell6.innerHTML = '<button onclick=doDeletePizza(this)>delete</button>'
+    cell6.innerHTML = '<button onclick=doDeletePizza(this)>Delete</button>'
 }
 function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
@@ -474,6 +472,5 @@ function convertServerCustomertoDisplayCustomer(customer){
     return displayCustomer
 }
 function doNothing(result){
-    console.log("nothing:"+result)
     return "done"
 }
