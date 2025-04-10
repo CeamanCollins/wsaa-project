@@ -104,9 +104,9 @@ class StudentDAO:
         return result
     
     def updatePizza(self, pizza):
-        values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['customer'], pizza['id'])
+        values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['status'], pizza['customer'], pizza['id'])
         cursor = self.getCursor()
-        sql = "UPDATE pizzas SET size= %s, base = %s, toppings = %s, customer = %s WHERE id = %s"
+        sql = "UPDATE pizzas SET size = %s, base = %s, toppings = %s, status = %s, customer = %s WHERE id = %s"
         cursor.execute(sql,values)
         self.connection.commit()
         self.closeAll()
