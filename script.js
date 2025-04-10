@@ -281,19 +281,21 @@ function populateFormWithCustomer(customer){
     form.querySelector('input[name="phone"]').value = customer.phone
     form.querySelector('input[name="email"]').value = customer.email
 }
-function doUpdatePizza(buttonElement){
+function doUpdatePizza(){
     var pizza = getPizzaFromForm()
-    // var tableElement = document.getElementById('pizzaTable')
-    var rowElement = document.getElementByID('pizza'+pizza.id)
+    var rowElementId = 'pizza' + pizza.id
+    var rowElement = document.getElementById(rowElementId)
     console.log(rowElement)
     console.log(pizza)
     setPizzaInRow(rowElement, pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
-function doUpdateCustomer(buttonElement){
+function doUpdateCustomer(){
     var customer = getCustomerFromForm()
-    var rowElement = document.getElementByID('customer'+customer.id)
+    var rowElementId = 'customer' + customer.id
+    var rowElement = document.getElementById(rowElementId)
+    setCustomerInRow(rowElement, customer)
     updateCustomer(customer,doNothing())
     showViewAllCustomers()
 }
