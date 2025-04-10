@@ -283,16 +283,14 @@ function populateFormWithCustomer(customer){
 }
 function doUpdatePizza(){
     var pizza = getPizzaFromForm()
-    var rowElementId = 'pizza' + pizza.id
-    var rowElement = document.getElementById(rowElementId)
+    var rowElement = document.getElementById(pizza.id)
     setPizzaInRow(rowElement, pizza)
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
 function doUpdateCustomer(){
     var customer = getCustomerFromForm()
-    var rowElementId = 'customer' + customer.id
-    var rowElement = document.getElementById(rowElementId)
+    var rowElement = document.getElementById(customer.id)
     setCustomerInRow(rowElement, customer)
     updateCustomer(customer,doNothing())
     showViewAllCustomers()
@@ -367,7 +365,7 @@ function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
     
-    rowElement.setAttribute('id','pizza'+pizza.id)
+    rowElement.setAttribute('id', pizza.id)
     
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
@@ -390,7 +388,7 @@ function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('id','customer'+customer.id)
+    rowElement.setAttribute('id',customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -421,7 +419,7 @@ function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('pizzaId')
+    id = rowElement.getAttribute('id')
     tableElement.deleteRow(index)
     deletePizza(id)
 }
@@ -429,7 +427,7 @@ function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
-    id = rowElement.getAttribute('customerId')
+    id = rowElement.getAttribute('id')
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
