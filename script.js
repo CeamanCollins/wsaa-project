@@ -304,10 +304,11 @@ function setPizzaInRow(rowElement, pizza){
     rowElement.cells[1] = pizza.size 
     rowElement.cells[2] = pizza.base
     rowElement.cells[3] = pizza.toppings
+    console.log(rowElement.cells[3])
     rowElement.cells[4] = pizza.status
     rowElement.cells[5] = pizza.customer
 }
-function setCustomerinRow(rowElement, customer){
+function setCustomerInRow(rowElement, customer){
     rowElement.cells[0] = customer.id
     rowElement.cells[1] = customer.name
     rowElement.cells[2] = customer.address
