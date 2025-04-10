@@ -52,13 +52,16 @@ function createCustomer(customer, callback){
 function updateCustomer(customer, callback){
     $.ajax(
         {
-            "url" : "/customers/"+customer.id,
+            "url" : "/customers/",
             "method": "PUT",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
+                var tableElement = document.getElementById('customerTable')
+                var rowElement = tableElement.getElementById('customer'+customer.id)
+                setCustomerinRow(rowElement,customer)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -138,7 +141,7 @@ function createPizza(pizza, callback){
 function updatePizza(pizza, callback){
     $.ajax(
         {
-            "url" : "/pizzas/"+pizza.id,
+            "url" : "/pizzas/",
             "method": "PUT",
             "data": JSON.stringify(pizza),
             "dataType": "JSON",
@@ -146,8 +149,8 @@ function updatePizza(pizza, callback){
             "success": function(result){
                 callback(result)
                 var tableElement = document.getElementById('pizzaTable')
-                var rowElement = tableElement.
-                addPizzaToTable(result)
+                var rowElement = tableElement.getElementById('pizza'+pizza.id)
+                setPizzaInRow(rowElement, pizza)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -286,18 +289,15 @@ function populateFormWithCustomer(customer){
 }
 function doUpdatePizza(buttonElement){
     var pizza = getPizzaFromForm()
-    var rowElement = document.getElementById('pizza'+pizza.id)
     console.log(rowElement)
     console.log(pizza)
-    setPizzaInRow(rowElement,pizza)
-    updatePizza(pizza)
+    updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
 function doUpdateCustomer(buttonElement){
     var customer = getCustomerFromForm()
     var rowElement = document.getElementById('customer'+customer.id)
-    setPizzaInRow(rowElement,pizza)
-    updateCustomer(customer)
+    updateCustomer(customer,doNothing())
     showViewAllCustomers()
 }
 function setPizzaInRow(rowElement, pizza){

@@ -22,7 +22,7 @@ def create_customer():
     return dao.studentDAO.createCusomter(jsonstring)
 
 #update
-@app.route('/customers/<int:id>', methods=['PUT'])
+@app.route('/customers/', methods=['PUT'])
 def update_customer():
     jsonstring = request.json
     return dao.studentDAO.updateCustomer(jsonstring)
@@ -47,7 +47,7 @@ def create_pizza():
     return dao.studentDAO.createPizza(jsonstring)
 
 #update
-@app.route('/pizzas/<int:id>', methods=['PUT'])
+@app.route('/pizzas/', methods=['PUT'])
 def update_pizza():
     jsonstring = request.json
     return dao.studentDAO.updatePizza(jsonstring)

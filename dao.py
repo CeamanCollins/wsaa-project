@@ -76,9 +76,9 @@ class StudentDAO:
         return "Deleted"
     
     def createPizza(self, pizza):
-        values=(pizza['size'], pizza['base'], pizza['toppings'], pizza['status'], pizza['customer'])
         cursor = self.getCursor()
-        sql = "INSERT INTO pizzas (size, base, toppings, status, customer) values (%s, %s, %s, %s, %s)"
+        values=(pizza['size'], pizza['base'], pizza['toppings'], pizza['status'], pizza['customer'])
+        sql = "INSERT INTO pizzas (Size, Base, Toppings, Status, Customer) values (%s, %s, %s, %s, %s)"
         cursor.execute(sql, values)
         newid = cursor.lastrowid
         pizza["id"] = newid
@@ -104,9 +104,9 @@ class StudentDAO:
         return result
     
     def updatePizza(self, pizza):
-        values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['status'], pizza['customer'], pizza['id'])
         cursor = self.getCursor()
-        sql = "UPDATE pizzas SET size = %s, base = %s, toppings = %s, status = %s, customer = %s WHERE id = %s"
+        values = (pizza['size'], pizza['base'], pizza['toppings'], pizza['status'], pizza['customer'], pizza['id'])
+        sql = "UPDATE pizzas SET Size = %s, Base = %s, Toppings = %s, Status = %s, Customer = %s WHERE ID = %s"
         cursor.execute(sql,values)
         self.connection.commit()
         self.closeAll()
