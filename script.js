@@ -204,6 +204,8 @@ function showViewAllCustomers(){
 function showRegisterForm(){
     hideAll()
     clearRegisterForm()
+    document.getElementById('create_label').style.display="inline-block"
+    document.getElementById('update_label').style.display="none"
     document.getElementById('doCreateCustomerButton').style.display="inline-block"
     document.getElementById('doUpdateCustomerButton').style.display="none"
     document.getElementById('registerForm').style.display="block"
@@ -233,10 +235,12 @@ function showUpdatePizza(button){
 }
 function showUpdateCustomer(button){
     hideAll()
+    document.getElementById('create_label').style.display="none"
+    document.getElementById('update_label').style.display="inline-block"
     document.getElementById('registerInputID').style.display="block"
     document.getElementById('registerForm').style.display="block"
     document.getElementById('doCreateCustomerButton').style.display="none"
-    document.getElementById('doUpdateCustomerButton').style.display="block"
+    document.getElementById('doUpdateCustomerButton').style.display="inline-block"
     var rowElement = button.parentNode.parentNode
     customer = getCustomerFromRow(rowElement)
     populateFormWithCustomer(customer)
