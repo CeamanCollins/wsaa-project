@@ -1,0 +1,71 @@
+body {
+    background-color: #fcb9c5;
+    color: #6a3e8b;
+    font-family: 'Arial', sans-serif;
+}
+h1 {
+    margin: 20px 0;
+}
+.tab {
+    overflow: hidden;
+    border: 1px solid #6a3e8b;
+    background-color: #fcb9c5;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.tab button:hover {
+    background-color: #ff8198;
+}
+
+.tab button.active {
+    background-color: #fcb9c5;
+    color; white;
+}
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #6a3e8b;
+    border-radius: 5px;
+    background-color: white;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+.btn-custom {
+    background-color: #6a3e8b;
+    color: white;
+}
+.btn-custom:hover {
+    background-color: #5a2e6b;
+}
+th {
+    background-color: #fcb9c5 !important;
+    color: #5a2e6b !important;
+} 
+tr {
+    background-color: #fdc4cf !important;
+    color: #5a2e6b !important;
+}
+td {
+    background-color: #fdc4cf !important;
+    color: #5a2e6b !important;
+}
+input {
+    background-color: #fdc4cf !important;
+}
+select {
+    background-color: #fdc4cf !important;
+}
+button{
+    background-color: #fcb9c5 !important;
+}
