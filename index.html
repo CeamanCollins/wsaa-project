@@ -8,12 +8,71 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Speedy Pizzas</h1>
-        <div id="menuButtons">
-            <button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
+        <style>
+            body {
+                background-color: #fcb9c5;
+                color: #6a3e8b;
+            }
+            .tab {
+                overflow: hidden;
+                border: 1px solid #6a3e8b;
+                background-color: #fcb9c5;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: center;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            .tab button:hover {
+                background-color: #fcb9c5;
+            }
+
+            .tab button.active {
+                background-color: #fcb9c5;
+            }
+
+            .tabcontent {
+                display: none;
+                padding: 6px 12px;
+                border: 1px solid #6a3e8b;
+                border-top: none;
+            }
+
+            .tabcontent {
+                animation: fadeEffect 1s; /* Fading effect takes 1 second */
+            }
+
+            /* Go from zero to full opacity */
+            @keyframes fadeEffect {
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
+            tr:first-child{
+                background-color: #fcb9c5;
+            }
+
+            tr:nth-child(even) {
+                background-color: #fcb9c5;
+            }
+            tr:hover {
+                background-color: #D6EEEE;
+            }
+
+        </style>
+        <h1><center><img src="./logo.png"></center></h1>
+        <div id="menuButtons" class="tab">
+            
+            <center><button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
             <button id="registerButton" onclick="showRegisterForm()">Register as Customer</button>
             <button id="viewPizzasButton" onclick="showViewAllPizzas()">View All Pizzas</button>
-            <button id="orderButton" onclick="showOrderForm()">Order Pizza</button>
+            <button id="orderButton" onclick="showOrderForm()">Order Pizza</button></center>
+
         </div>
         <div id="viewAllPizzas" style="display:none">
         <table class="table" id="pizzaTable">
@@ -42,6 +101,7 @@
                 </tr>
             </table>
         </div>
+        <center>
         <div id="registerForm" style="display:none">
             <h2>
                 <span id="create_label">Create</span>
@@ -56,7 +116,7 @@
             <span><button id="doCreateCustomerButton" onclick="doCreateCustomer()">Create</button></span>
             <span><button id="doUpdateCustomerButton" onclick="doUpdateCustomer()" style="display:none">Update</button></span>
         </div>
-        <div id="orderForm" style="display:none">
+        <div id="orderForm" style="display:none; display: inline-block; text-align: left;" >
             <h2>
                 <span id="updateLabelPizza" style="display:none">Update this</span> Order
             </h2>
@@ -85,6 +145,7 @@
             <span><button id="doCreatePizzaButton" onclick="doCreatePizza()">Create</button></span>
             <span><button id="doUpdatePizzaButton" onclick="doUpdatePizza()" style="display:none">Update</button></span>
         </div>
+        </center>
         <script>
             getAllPizzas(processGetAllPizzasResponse)
             getAllCustomers(processGetAllCustomersResponse)

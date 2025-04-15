@@ -213,7 +213,7 @@ function showOrderForm(){
     clearOrderForm()
     document.getElementById('orderInputID').style.display="none"
     document.getElementById('updateLabelPizza').style.display="none"
-    document.getElementById('orderForm').style.display="block"
+    document.getElementById('orderForm').style.display="inline-block"
     document.getElementById('doCreatePizzaButton').style.display="block"
     document.getElementById('doUpdatePizzaButton').style.display="none"
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
@@ -223,7 +223,7 @@ function showUpdatePizza(button){
     hideAll()
     document.getElementById('orderInputID').style.display="block"
     document.getElementById('updateLabelPizza').style.display="block"
-    document.getElementById('orderForm').style.display="block"
+    document.getElementById('orderForm').style.display="inline-block"
     document.getElementById('doCreatePizzaButton').style.display="none"
     document.getElementById('doUpdatePizzaButton').style.display="block"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
