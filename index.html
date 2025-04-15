@@ -1,81 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
-        <title>
-            Speedy Pizzas
-        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Speedy Pizzas</title>
         <script src="./script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    </head>
-    <body>
         <style>
             body {
                 background-color: #fcb9c5;
                 color: #6a3e8b;
+                font-family: 'Arial', sans-serif;
+            }
+            h1 {
+                margin: 20px 0;
             }
             .tab {
                 overflow: hidden;
                 border: 1px solid #6a3e8b;
                 background-color: #fcb9c5;
+                border-radius: 5px;
+                margin-bottom: 20px;
             }
 
             .tab button {
                 background-color: inherit;
-                float: center;
                 border: none;
-                outline: none;
                 cursor: pointer;
                 padding: 14px 16px;
-                transition: 0.3s;
+                transition: background-color 0.3s;
+                border-radius: 5px;
             }
 
             .tab button:hover {
-                background-color: #fcb9c5;
+                background-color: #ff8198;
             }
 
             .tab button.active {
                 background-color: #fcb9c5;
+                color; white;
             }
-
             .tabcontent {
                 display: none;
-                padding: 6px 12px;
+                padding: 20px;
                 border: 1px solid #6a3e8b;
-                border-top: none;
+                border-radius: 5px;
+                background-color: white;
             }
-
-            .tabcontent {
-                animation: fadeEffect 1s; /* Fading effect takes 1 second */
+            .form-control {
+                margin-bottom: 10px;
             }
-
-            /* Go from zero to full opacity */
-            @keyframes fadeEffect {
-                from {opacity: 0;}
-                to {opacity: 1;}
+            .btn-custom {
+                background-color: #6a3e8b;
+                color: white;
             }
-            tr:first-child{
-                background-color: #fcb9c5;
+            .btn-custom:hover {
+                background-color: #5a2e6b;
             }
-
-            tr:nth-child(even) {
-                background-color: #fcb9c5;
-            }
-            tr:hover {
-                background-color: #D6EEEE;
-            }
-
         </style>
-        <h1><center><img src="./logo.png"></center></h1>
+    </head>
+    <body>
+        <div class="container text-center">
+        <h1><img src="./logo.png"  alt="Speedy Pizzas Logo" class="img-fluid"></h1>
         <div id="menuButtons" class="tab">
-            
-            <center><button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
+            <button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
             <button id="registerButton" onclick="showRegisterForm()">Register as Customer</button>
             <button id="viewPizzasButton" onclick="showViewAllPizzas()">View All Pizzas</button>
-            <button id="orderButton" onclick="showOrderForm()">Order Pizza</button></center>
-
+            <button id="orderButton" onclick="showOrderForm()">Order Pizza</button>
         </div>
+
         <div id="viewAllPizzas" style="display:none">
-        <table class="table" id="pizzaTable">
+        <table class="table table-striped" id="pizzaTable">
             <tr>
                 <th>Order Number</th>
                 <th>Size</th>
@@ -88,6 +85,7 @@
             </tr>
         </table>
         </div>
+
         <div id="viewAllCustomers" style="display:none">
             <table class="table" id="customerTable">
                 <tr>
@@ -101,7 +99,6 @@
                 </tr>
             </table>
         </div>
-        <center>
         <div id="registerForm" style="display:none">
             <h2>
                 <span id="create_label">Create</span>
@@ -116,36 +113,38 @@
             <span><button id="doCreateCustomerButton" onclick="doCreateCustomer()">Create</button></span>
             <span><button id="doUpdateCustomerButton" onclick="doUpdateCustomer()" style="display:none">Update</button></span>
         </div>
-        <div id="orderForm" style="display:none; display: inline-block; text-align: left;" >
-            <h2>
-                <span id="updateLabelPizza" style="display:none">Update this</span> Order
-            </h2>
-            <span id="orderInputID" style="display:none;">Order ID<input type="text" name="orderId"></span>
-            Size <select name="size">
-                <option value="9&quot;">9"</option>
-                <option value="12&quot;">12"</option>
-                <option value="14&quot;">14"</option>
-            </select><br/>
-            Base <select name="base">
-                <option value="thin">thin</option>
-                <option value="normal">normal</option>
-                <option value="deep pan">deep pan</option>
-                <option value="stuffed">stuffed</option>
-            </select><br/>
-            Toppings <input type="text" name="toppings"><br/>
-            Customer ID <input type="text" name="customer"><br/>
-            </select>
-            Status<select name="status" disabled=true>
-                <option value="ordered">ordered</option>
-                <option value="preparing">preparing</option>
-                <option value="ready">ready</option>
-                <option value="delivered">delivered</option>
-            </select><br/>
-            <br/>
-            <span><button id="doCreatePizzaButton" onclick="doCreatePizza()">Create</button></span>
-            <span><button id="doUpdatePizzaButton" onclick="doUpdatePizza()" style="display:none">Update</button></span>
+        <div id="orderForm" style="display:none;" >
+            <div style="display: inline-block; text-align: left;"
+                <h2>
+                    <span id="updateLabelPizza" style="display:none">Update this</span> Order
+                </h2>
+                <span id="orderInputID" style="display:none;">Order ID<input type="text" name="orderId"></span>
+                Size <select name="size">
+                    <option value="9&quot;">9"</option>
+                    <option value="12&quot;">12"</option>
+                    <option value="14&quot;">14"</option>
+                </select><br/>
+                Base <select name="base">
+                    <option value="thin">thin</option>
+                    <option value="normal">normal</option>
+                    <option value="deep pan">deep pan</option>
+                    <option value="stuffed">stuffed</option>
+                </select><br/>
+                Toppings <input type="text" name="toppings"><br/>
+                Customer ID <input type="text" name="customer"><br/>
+                </select>
+                Status<select name="status" disabled=true>
+                    <option value="ordered">ordered</option>
+                    <option value="preparing">preparing</option>
+                    <option value="ready">ready</option>
+                    <option value="delivered">delivered</option>
+                </select><br/>
+                <br/>
+                <span><button id="doCreatePizzaButton" onclick="doCreatePizza()">Create</button></span>
+                <span><button id="doUpdatePizzaButton" onclick="doUpdatePizza()" style="display:none">Update</button></span>
+            </div>
         </div>
-        </center>
+    </div>
         <script>
             getAllPizzas(processGetAllPizzasResponse)
             getAllCustomers(processGetAllCustomersResponse)

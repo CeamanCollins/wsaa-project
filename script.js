@@ -204,7 +204,7 @@ function showViewAllCustomers(){
 function showRegisterForm(){
     hideAll()
     clearRegisterForm()
-    document.getElementById('doCreateCustomerButton').style.display="block"
+    document.getElementById('doCreateCustomerButton').style.display="inline-block"
     document.getElementById('doUpdateCustomerButton').style.display="none"
     document.getElementById('registerForm').style.display="block"
 }
@@ -214,7 +214,7 @@ function showOrderForm(){
     document.getElementById('orderInputID').style.display="none"
     document.getElementById('updateLabelPizza').style.display="none"
     document.getElementById('orderForm').style.display="inline-block"
-    document.getElementById('doCreatePizzaButton').style.display="block"
+    document.getElementById('doCreatePizzaButton').style.display="inline-block"
     document.getElementById('doUpdatePizzaButton').style.display="none"
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
