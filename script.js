@@ -213,6 +213,8 @@ function showRegisterForm(){
 function showOrderForm(){
     hideAll()
     clearOrderForm()
+    removeOptions()
+    getAllCustomers(populateCustomerId)
     document.getElementById('orderInputID').style.display="none"
     document.getElementById('updateLabelPizza').style.display="none"
     document.getElementById('orderForm').style.display="inline-block"
@@ -223,6 +225,8 @@ function showOrderForm(){
 }
 function showUpdatePizza(button){
     hideAll()
+    removeOptions()
+    getAllCustomers(populateCustomerId)
     document.getElementById('orderInputID').style.display="block"
     document.getElementById('updateLabelPizza').style.display="block"
     document.getElementById('orderForm').style.display="inline-block"
@@ -431,7 +435,6 @@ function doDeleteCustomer(buttonElement){
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
     id = rowElement.cells[0].innerHTML
-    console.log(id)
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
@@ -467,16 +470,22 @@ function convertServerCustomertoDisplayCustomer(customer){
     return displayCustomer
 }
 function populateCustomerId(result){
-    let select = document.querySelector("#customerSelect")
-
+    var select = document.querySelector("#customerSelect")
     for (customer of result){
-    let display_customer = convertServerCustomertoDisplayCustomer(customer)
-    let option = document.createElement("option");
-    option.text = display_customer.name;
-    option.value = display_customer.id;
-    select.appendChild(option);
+        let display_customer = convertServerCustomertoDisplayCustomer(customer)
+        let option = document.createElement("option");
+        option.text = display_customer.name;
+        option.value = display_customer.id;
+        select.appendChild(option);
+    }
 }
-}
+function removeOptions() {
+    var selectElement = document.querySelector("#customerSelect")
+    var i, L = selectElement.options.length - 1;
+    for(i = L; i >= 0; i--) {
+       selectElement.remove(i);
+    }
+ }
 function doNothing(result){
     return "done"
 }
