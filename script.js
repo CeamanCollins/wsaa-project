@@ -190,7 +190,7 @@ function clearOrderForm(){
     form.querySelector('select[name="size"]').value='12"'
     form.querySelector('select[name="base"]').value='normal'
     form.querySelector('input[name="toppings"]').value=''
-    form.querySelector('input[name="customer"]').value=''
+    form.querySelector('select[name="customer"]').value=''
     form.querySelector('select[name="status"]').value='ordered'
 }
 function showViewAllPizzas(){
