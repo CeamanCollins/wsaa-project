@@ -472,7 +472,7 @@ function populateCustomerId(result){
     for (customer of result){
     let display_customer = convertServerCustomertoDisplayCustomer(customer)
     let option = document.createElement("option");
-    option.text = display_customer.id;
+    option.text = display_customer.name;
     option.value = display_customer.id;
     select.appendChild(option);
 }
