@@ -466,7 +466,7 @@ function convertServerCustomertoDisplayCustomer(customer){
     displayCustomer.email = customer[4]
     return displayCustomer
 }
-function populateCustomerID(result){
+function populateCustomerId(result){
     let select = document.querySelector("customer")
 
     for (customer of result){
