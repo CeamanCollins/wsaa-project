@@ -473,7 +473,7 @@ function populateCustomerId(result){
     let display_customer = convertServerCustomertoDisplayCustomer(customer)
     let option = document.createElement("option");
     option.text = display_customer.id;
-    option.value = display_customercustomer.id;
+    option.value = display_customer.id;
     select.appendChild(option);
 }
 }
