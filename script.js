@@ -419,7 +419,7 @@ function doCreatePizza(){
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     createCustomer(customer,doNothing)
-    setTimeout(showViewAllCustomers(), 1000)
+    setTimeout(showViewAllCustomers(), 3000)
 }
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
