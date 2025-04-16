@@ -69,3 +69,8 @@ select {
 button{
     background-color: #fcb9c5 !important;
 }
+form  { display: table; margin: 0 auto; width: 250px;      }
+p     { display: table-row;  }
+label { display: table-cell; padding: 3px; }
+input { display: table-cell; }
+select { display: table-cell;}

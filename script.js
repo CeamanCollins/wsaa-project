@@ -329,7 +329,7 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
-    form.querySelector('input[name="customer"]').value = pizza.customer
+    form.querySelector('select[name="customer"]').value = pizza.customer
     form.querySelector('select[name="status"]').value = pizza.status
     form.querySelector('select[name="status"]').disabled = false
 }
@@ -350,7 +350,7 @@ function getPizzaFromForm(){
     pizza.base = form.querySelector('select[name="base"]').value
     pizza.toppings = form.querySelector('input[name="toppings"]').value
     pizza.status = form.querySelector('select[name="status"]').value
-    pizza.customer = form.querySelector('input[name="customer"]').value
+    pizza.customer = form.querySelector('select[name="customer"]').value
     return pizza
 }
 function getCustomerFromForm(){
@@ -465,6 +465,17 @@ function convertServerCustomertoDisplayCustomer(customer){
     displayCustomer.phone = customer[3]
     displayCustomer.email = customer[4]
     return displayCustomer
+}
+function populateCustomerID(result){
+    let select = document.querySelector("customer")
+
+    for (customer of result){
+    let display_customer = convertServerCustomertoDisplayCustomer(customer)
+    let option = document.createElement("option");
+    option.text = display_customer.id;
+    option.value = display_customercustomer.id;
+    select.appendChild(option);
+}
 }
 function doNothing(result){
     return "done"

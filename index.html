@@ -49,18 +49,35 @@
             </table>
         </div>
         <div id="registerForm" style="display:none">
+        
             <h2>
                 <span id="create_label">Create</span>
                 <span id="update_label" style="display:none">Update</span> Customer
             </h2>
             <span id="registerInputID" style="display: none;">ID<input type="text" name="id"></span>
-            Name <input type="text" name="name"><br/>
-            Address <input type="text" name="address"><br/>
-            Phone <input type="text" name="phone"><br/>
-            Email <input type="text" name="email"><br/>
-            <br/>
-            <span><button id="doCreateCustomerButton" onclick="doCreateCustomer()">Create</button></span>
-            <span><button id="doUpdateCustomerButton" onclick="doUpdateCustomer()" style="display:none">Update</button></span>
+            <div style="text-align: left;">
+            <form style="align-content: center;">
+                <p>
+                <label>Name</label>
+                <input type="text" name="name"><br/>
+                </p>
+                <p>
+                <label>Address</label>
+                <input type="text" name="address"><br/>
+                </p>
+                <p>
+                <label>Phone</label>
+                <input type="text" name="phone"><br/>
+                </p>
+                <p>
+                <label>Email</label>
+                <input type="text" name="email"><br/>
+                </p>
+                <br/>
+                <span><button id="doCreateCustomerButton" onclick="doCreateCustomer()">Create</button></span>
+                <span><button id="doUpdateCustomerButton" onclick="doUpdateCustomer()" style="display:none">Update</button></span>
+            </form>
+        </div>
         </div>
         <div id="orderForm" style="display:none;" >
             <div style="display: inline-block; text-align: left;">
@@ -68,27 +85,44 @@
                     <span id="updateLabelPizza" style="display:none">Update this</span> Order
                 </h2>
                 <span id="orderInputID" style="display:none;">Order ID<input type="text" name="orderId"></span>
-                Size <select name="size">
-                    <option value="9&quot;">9"</option>
-                    <option value="12&quot;">12"</option>
-                    <option value="14&quot;">14"</option>
-                </select><br/>
-                Base <select name="base">
-                    <option value="thin">thin</option>
-                    <option value="normal">normal</option>
-                    <option value="deep pan">deep pan</option>
-                    <option value="stuffed">stuffed</option>
-                </select><br/>
-                Toppings <input type="text" name="toppings"><br/>
-                Customer ID <input type="text" name="customer"><br/>
-                </select>
-                Status<select name="status" disabled=true>
-                    <option value="ordered">ordered</option>
-                    <option value="preparing">preparing</option>
-                    <option value="ready">ready</option>
-                    <option value="delivered">delivered</option>
-                </select><br/>
-                <br/>
+                <form>
+                    <p>
+                        <label>Size</label>
+                        <select name="size">
+                            <option value="9&quot;">9"</option>
+                            <option value="12&quot;">12"</option>
+                            <option value="14&quot;">14"</option>
+                        </select>
+                        </p>
+                        <p>
+                        <label>Base</label>
+                        <select name="base">
+                            <option value="thin">thin</option>
+                            <option value="normal">normal</option>
+                            <option value="deep pan">deep pan</option>
+                            <option value="stuffed">stuffed</option>
+                        </select>
+                        </p>
+                        <p>
+                        <label>Toppings</label>
+                        <input type="text" name="toppings">
+                        </p>
+                        <p>
+                        <label>Customer ID</label>
+                        <select name="customer">
+                            
+                        </select>
+                        </p>
+                        <p>
+                        <label>Status</label>
+                        <select name="status" disabled=true>
+                            <option value="ordered">ordered</option>
+                            <option value="preparing">preparing</option>
+                            <option value="ready">ready</option>
+                            <option value="delivered">delivered</option>
+                        </select>
+                        </p>
+                </form>
                 <span><button id="doCreatePizzaButton" onclick="doCreatePizza()">Create</button></span>
                 <span><button id="doUpdatePizzaButton" onclick="doUpdatePizza()" style="display:none">Update</button></span>
             </div>
