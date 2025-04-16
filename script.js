@@ -467,7 +467,7 @@ function convertServerCustomertoDisplayCustomer(customer){
     return displayCustomer
 }
 function populateCustomerId(result){
-    let select = document.querySelector("customer")
+    let select = document.querySelector("customerSelect")
 
     for (customer of result){
     let display_customer = convertServerCustomertoDisplayCustomer(customer)
