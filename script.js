@@ -195,11 +195,11 @@ function clearOrderForm(){
 }
 function showViewAllPizzas(){
     hideAll()
-    document.getElementById('viewAllPizzas').style.display="block"
+    document.getElementById('viewAllPizzas').style.display="inline-block"
 }
 function showViewAllCustomers(){
     hideAll()
-    document.getElementById('viewAllCustomers').style.display="block"
+    document.getElementById('viewAllCustomers').style.display="inline-block"
 }
 function showRegisterForm(){
     hideAll()
@@ -418,8 +418,8 @@ function doCreatePizza(){
 }
 function doCreateCustomer(){
     customer = getCustomerFromForm()
-    createCustomer(customer,doNothing)
-    setTimeout(showViewAllCustomers(), 3000)
+    createCustomer(customer, doNothing)
+    showViewAllCustomers()
 }
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
