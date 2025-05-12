@@ -592,8 +592,7 @@ function processBaseMetricsResponse(result){
 
         };
     });
-    console.log(x),
-    console.log(y),
+    console.log(data)
     Highcharts.chart({
         chart: {
             renderTo: 'container2',
