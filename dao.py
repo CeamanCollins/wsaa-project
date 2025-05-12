@@ -46,6 +46,7 @@ class StudentDAO:
         cursor.execute(sql)
         result = cursor.fetchall()
         self.closeAll()
+        result = self.convertToDict(result)
         return result
     
     def findCustomerByID(self, id):
@@ -92,6 +93,7 @@ class StudentDAO:
         cursor.execute(sql)
         result = cursor.fetchall()
         self.closeAll()
+        result = self.convertPizzaToDict(result)
         return result
     
     def findPizzaByID(self, id):
@@ -101,6 +103,7 @@ class StudentDAO:
         cursor.execute(sql,values)
         result = cursor.fetchall()
         self.closeAll()
+        result = self.convertPizzaToDict(result)
         return result
     
     def updatePizza(self, pizza):
@@ -135,6 +138,31 @@ class StudentDAO:
         cursor.execute(sql)
         result = cursor.fetchall()
         self.closeAll()
+        return result
+
+    def convertCustomerToDict(self, data):
+        result = []
+        for row in data:
+            result.append({
+                'id': row[0],
+                'name': row[1],
+                'address': row[2],
+                'phone': row[3],
+                'email': row[4]
+            })
+        return result
+    
+    def convertPizzaToDict(self, data):
+        result = []
+        for row in data:
+            result.append({
+                'id': row[0],
+                'size': row[1],
+                'base': row[2],
+                'toppings': row[3],
+                'status': row[4],
+                'customer': row[5]
+            })
         return result
 
 studentDAO = StudentDAO()
