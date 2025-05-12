@@ -342,8 +342,8 @@ function getPizzaFromRow(rowElement){
 }
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
-    console.log(getCustomerById(pizza.customer, getCustomerName))
-    console.log(returnName)
+    var customerName = getCustomerById(pizza.customer, doNothing)
+    console.log(customerName)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
     form.querySelector('select[name="size"]').value = pizza.size
