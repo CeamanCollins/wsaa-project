@@ -366,7 +366,8 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
-    form.querySelector('select[name="customer"]').value = pizza.customer
+    var name = getCustomerById(pizza.customer, getCustomerName)
+    form.querySelector('select[name="customer"]').value = name
     form.querySelector('select[name="status"]').value = pizza.status
     form.querySelector('select[name="status"]').disabled = false
 }
@@ -519,6 +520,10 @@ function removeOptions() {
        selectElement.remove(i);
     }
  }
+function getCustomerName(result){
+    var name = result.name
+    return name
+}
 function doNothing(result){
     return "done"
 }
