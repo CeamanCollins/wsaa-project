@@ -586,12 +586,14 @@ function processSizeMetricsResponse(result){
 }
 function processBaseMetricsResponse(result){
     var data = result.map(function(item) {
-        console.log(item)
         return {
-            name: item[0],
-            y: item[1]
+            x: item[0],
+            y: item[1],
+
         };
     });
+    console.log(x),
+    console.log(y),
     Highcharts.chart({
         chart: {
             renderTo: 'container2',
