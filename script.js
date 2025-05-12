@@ -256,10 +256,11 @@ function showOrderForm(){
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
 }
-function showUpdatePizza(button){
+async function showUpdatePizza(button){
     hideAll()
     removeOptions()
     getAllCustomers(populateCustomerId)
+    await resolveAfterDelay()
     document.getElementById('orderInputID').style.display="block"
     document.getElementById('updateLabelPizza').style.display="block"
     document.getElementById('orderForm').style.display="inline-block"
@@ -268,7 +269,7 @@ function showUpdatePizza(button){
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
     var rowElement = button.parentNode.parentNode
     pizza = getPizzaFromRow(rowElement)
-    populateFormWithPizza(pizza)
+    
 }
 function showUpdateCustomer(button){
     hideAll()
@@ -291,17 +292,6 @@ function getPizzaFromRow(rowElement){
     pizza.customer = rowElement.cells[4].firstChild.textContent
     return pizza
 }
-// function populateFormWithPizza(pizza){
-//     var form = document.getElementById('orderForm')
-//     form.querySelector('input[name="orderId"]').disabled = true
-//     form.querySelector('input[name="orderId"]').value = pizza.id
-//     form.querySelector('select[name="size"]').value = pizza.size
-//     form.querySelector('select[name="base"]').value = pizza.base
-//     form.querySelector('input[name="toppings"]').value = pizza.toppings
-//     form.querySelector('select[name="status"]').disabled = pizza.status
-//     form.querySelector('select[name="status"]').disabled = false
-//     form.querySelector('select[name="customer"]').value = pizza.customer
-// }
 function getCustomerFromRow(rowElement){
     var customer={}
     customer.id = rowElement.cells[0].firstChild.textContent
@@ -526,6 +516,14 @@ function getCustomerName(result){
 }
 function doNothing(result){
     return "done"
+}
+
+function resolveAfterDelay(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("done");
+        }, 1000)
+    });
 }
 
 function initHighcharts(){
