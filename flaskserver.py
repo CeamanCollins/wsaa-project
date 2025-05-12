@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request, redirect, abort, render_template
+from flask import Flask, url_for, request, redirect, abort, render_template, jsonify
 import dao
 
 app = Flask(__name__, static_url_path='', static_folder='./')
@@ -60,11 +60,11 @@ def delete_pizza(id):
 #metrics
 @app.route('/basemetrics', methods=['GET'])
 def get_metrics():
-    return dao.studentDAO.getBaseMetrics()
+    return jsonify(dao.studentDAO.getBaseMetrics())
 
 @app.route('/sizemetrics', methods=['GET'])
 def get_size_metrics():
-    return dao.studentDAO.getSizeMetrics()
+    return jsonify(dao.studentDAO.getSizeMetrics())
 
 if __name__ == "__main__":
     app.run(debug=True)

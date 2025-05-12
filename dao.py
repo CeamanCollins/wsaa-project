@@ -126,6 +126,7 @@ class StudentDAO:
         sql = "SELECT size, COUNT(size) FROM pizzas GROUP BY size;"
         cursor.execute(sql)
         result = cursor.fetchall()
+        self.closeAll()
         return result
     
     def getBaseMetrics(self):
@@ -133,6 +134,7 @@ class StudentDAO:
         sql = "SELECT base, COUNT(base) FROM pizzas GROUP BY base;"
         cursor.execute(sql)
         result = cursor.fetchall()
+        self.closeAll()
         return result
 
 studentDAO = StudentDAO()

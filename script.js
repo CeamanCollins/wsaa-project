@@ -168,6 +168,38 @@ function deletePizza(id, callback){
         }
     );
 }
+function getSizeMetrics(callback){
+    $.ajax(
+        {
+            "url" : "/pizzas/sizemetrics",
+            "method": "GET",
+            "data": "",
+            "dataType": "JSON",
+            "success": function(result){
+                callback(result)
+            },
+            "error": function(xhr,status,error){
+                console.log("error: "+status+" message: "+error);
+            }
+        }
+    );
+}
+function getBaseMetrics(callback){
+    $.ajax(
+        {
+            "url" : "/pizzas/basemetrics",
+            "method": "GET",
+            "data": "",
+            "dataType": "JSON",
+            "success": function(result){
+                callback(result)
+            },
+            "error": function(xhr,status,error){
+                console.log("error: "+status+" message: "+error);
+            }
+        }
+    );
+}
 function hideAll(){
     document.getElementById('viewAllPizzas').style.display="none"
     document.getElementById('viewAllCustomers').style.display="none"
