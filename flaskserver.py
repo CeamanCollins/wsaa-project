@@ -3,6 +3,8 @@ import dao
 
 app = Flask(__name__, static_url_path='', static_folder='./')
 
+app.json.sort_keys = False
+
 @app.route('/')
 def index():
     return "Welcome to speedy pizzas, try /pizzas or /index.html"
