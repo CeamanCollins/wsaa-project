@@ -22,7 +22,7 @@ function getCustomerById(id, callback){
             "data": "",
             "dataType": "JSON",
             "success": function(result){
-                return callback(result)
+                callback(result)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
@@ -342,8 +342,8 @@ function getPizzaFromRow(rowElement){
 }
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
-    var customerName = getCustomerById(pizza.customer, getCustomerName)
-    console.log(customerName)
+    console.log(getCustomerById(pizza.customer, getCustomerName))
+    console.log(returnName)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
     form.querySelector('select[name="size"]').value = pizza.size
