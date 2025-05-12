@@ -128,16 +128,3 @@ input[type="number"] {
 .highcharts-description {
     margin: 0.3rem 10px;
 }
-
-.highcharts-background {
-    fill: #fcb9c5;
-}
-.highcharts-plot-background {
-    fill: #fcb9c5;
-}
-.highcharts-plot-border {
-    fill: #fcb9c5;
-}
-.highcharts-text-outline {
-    color: #fcb9c5;
-}
