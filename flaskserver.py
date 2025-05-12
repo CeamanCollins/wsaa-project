@@ -58,9 +58,13 @@ def delete_pizza(id):
     return dao.studentDAO.deletePizza(id)
 
 #metrics
-@app.route('/metrics', methods=['GET'])
+@app.route('/basemetrics', methods=['GET'])
 def get_metrics():
-    return dao.studentDAO.getMetrics()
+    return dao.studentDAO.getBaseMetrics()
+
+@app.route('/sizemetrics', methods=['GET'])
+def get_size_metrics():
+    return dao.studentDAO.getSizeMetrics()
 
 if __name__ == "__main__":
     app.run(debug=True)
