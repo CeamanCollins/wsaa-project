@@ -18,3 +18,8 @@ This project was started in another repository which can be found [here](https:/
 # Hosting
 
 Please find working example at https://ceamancollins.pythonanywhere.com/index.html. It may give an error on the first load, if this happens please refresh.
+
+You can view pizzas [here](https://ceamancollins.pythonanywhere.com/pizzas).
+You can view customers [here](https://ceamancollins.pythonanywhere.com/customers).
+
+You can view specific [customers](https://ceamancollins.pythonanywhere.com/customers/1) or [pizzas](https://ceamancollins.pythonanywhere.com/pizzas/1) by adding the id after a forwardslash.
