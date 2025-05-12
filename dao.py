@@ -120,5 +120,15 @@ class StudentDAO:
         self.connection.commit()
         self.closeAll()
         return "Deleted"
+    
+    def getMetrics(self):
+        cursor = self.getCursor()
+        sql = "SELECT size, COUNT(size) FROM pizzas GROUP BY size;"
+        cursor.execute(sql)
+        result1 = cursor.fetchall()
+        sql = "SELECT base, COUNT(base) FROM pizzas GROUP BY base;"
+        cursor.execute(sql)
+        result2 = cursor.fetchall()
+        return result1, result2
 
 studentDAO = StudentDAO()
