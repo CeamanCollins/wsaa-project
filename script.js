@@ -485,21 +485,21 @@ function processGetAllCustomersResponse(result){
 }
 function convertServerPizzaToDisplayPizza(pizza){
     displayPizza = {}
-    displayPizza.id = pizza[0]
-    displayPizza.size = pizza[1]
-    displayPizza.base = pizza[2]
-    displayPizza.toppings = pizza[3]
-    displayPizza.status = pizza[4]
-    displayPizza.customer = pizza[5]
+    displayPizza.id = pizza['id']
+    displayPizza.size = pizza['size']
+    displayPizza.base = pizza['base']
+    displayPizza.toppings = pizza['toppings']
+    displayPizza.status = pizza['status']
+    displayPizza.customer = pizza['customer']
     return displayPizza
 }
 function convertServerCustomertoDisplayCustomer(customer){
     displayCustomer = {}
-    displayCustomer.id = customer[0]
-    displayCustomer.name = customer[1]
-    displayCustomer.address = customer[2]
-    displayCustomer.phone = customer[3]
-    displayCustomer.email = customer[4]
+    displayCustomer.id = customer['id']
+    displayCustomer.name = customer['name']
+    displayCustomer.address = customer['address']
+    displayCustomer.phone = customer['phone']
+    displayCustomer.email = customer['email']
     return displayCustomer
 }
 function populateCustomerId(result){

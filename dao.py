@@ -46,7 +46,7 @@ class StudentDAO:
         cursor.execute(sql)
         result = cursor.fetchall()
         self.closeAll()
-        result = self.convertToDict(result)
+        result = self.convertCustomerToDict(result)
         return result
     
     def findCustomerByID(self, id):
@@ -56,6 +56,7 @@ class StudentDAO:
         cursor.execute(sql, values)
         result = cursor.fetchall()
         self.closeAll()
+        result = self.convertCustomerToDict(result)
         return result
     
     def updateCustomer(self, customer):
