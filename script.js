@@ -522,9 +522,9 @@ function removeOptions() {
  }
 function getCustomerName(result){
     console.log(result)
-    var name = result.name
-    console.log(name)
-    return name
+    var returnName = result.name
+    console.log(returnName)
+    return returnName
 }
 function doNothing(result){
     return "done"
