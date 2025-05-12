@@ -301,15 +301,6 @@ function getCustomerFromRow(rowElement){
     customer.email = rowElement.cells[4].firstChild.textContent
     return customer
 }
-function populateFormWithCustomer(customer){
-    var form = document.getElementById('registerForm')
-    form.querySelector('input[name="id"]').disabled = true
-    form.querySelector('input[name="id"]').value = customer.id
-    form.querySelector('input[name="name"]').value = customer.name
-    form.querySelector('input[name="address"]').value = customer.address
-    form.querySelector('input[name="phone"]').value = customer.phone
-    form.querySelector('input[name="email"]').value = customer.email
-}
 function doUpdatePizza(){
     var pizza = getPizzaFromForm()
     var rowElement = document.getElementById('pizza'+pizza.id)
@@ -352,6 +343,7 @@ function getPizzaFromRow(rowElement){
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
     var name = getCustomerById(pizza.customer, getCustomerName)
+    console.log(name)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
     form.querySelector('select[name="size"]').value = pizza.size
