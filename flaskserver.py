@@ -7,8 +7,9 @@ app.json.sort_keys = False
 
 @app.route('/')
 def index():
-    return "Welcome to speedy pizzas, try /pizzas or /index.html"
+    return redirect(url_for('static', filename='index.html'))
 
+#read
 @app.route('/customers', methods=['GET'])
 def get_all_customers():
     return dao.studentDAO.getAllCustomers()
@@ -34,6 +35,7 @@ def update_customer():
 def delete_customer(id):
     return dao.studentDAO.deleteCustomer(id)
 
+#read
 @app.route('/pizzas', methods=['GET'])
 def get_all_pizzas():
     return dao.studentDAO.getAllPizzas()
