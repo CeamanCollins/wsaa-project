@@ -342,7 +342,7 @@ function getPizzaFromRow(rowElement){
 }
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
-    var customerName = getCustomerById(pizza.customer, getCustomerName)
+    getCustomerById(pizza.customer, selectCustomerName)
     console.log(returnName)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
@@ -502,11 +502,10 @@ function removeOptions() {
        selectElement.remove(i);
     }
  }
-var returnName = ""
-function getCustomerName(result){
-    returnName = result[0].name
-    console.log(returnName)
-    return returnName
+function selectCustomerName(result){
+    var returnName = result[0].name
+    var form = document.getElementById('orderForm')
+    form.querySelector('select[name="customer"]').value = returnName
 }
 function doNothing(result){
     return "done"
