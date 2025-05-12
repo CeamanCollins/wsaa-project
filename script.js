@@ -269,7 +269,7 @@ async function showUpdatePizza(button){
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
     var rowElement = button.parentNode.parentNode
     pizza = getPizzaFromRow(rowElement)
-    
+    populateFormWithPizza(pizza)
 }
 function showUpdateCustomer(button){
     hideAll()
