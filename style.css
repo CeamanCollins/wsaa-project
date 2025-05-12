@@ -112,11 +112,11 @@ select { display: table-cell;}
 
 .highcharts-data-table thead tr,
 .highcharts-data-table tbody tr:nth-child(even) {
-    background: #f8f8f8;
+    background: #fcb9c5;
 }
 
 .highcharts-data-table tr:hover {
-    background: #f1f7ff;
+    background: #fcb9c5;
 }
 
 input[type="number"] {
