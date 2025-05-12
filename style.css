@@ -91,7 +91,8 @@ select { display: table-cell;}
     text-align: center;
     width: 100%;
     max-width: 500px;
-    fill: #fcb9c5
+    fill: #fcb9c5;
+    background-color: #fcb9c5;
 }
 
 .highcharts-data-table caption {
