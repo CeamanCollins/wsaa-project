@@ -342,14 +342,14 @@ function getPizzaFromRow(rowElement){
 }
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
-    var customerName = getCustomerById(pizza.customer, doNothing)
-    console.log(customerName)
+    var customerName = getCustomerById(pizza.customer, getCustomerName)
+    console.log(returnName)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
-    form.querySelector('select[name="customer"]').value = customerName
+    form.querySelector('select[name="customer"]').value = returnName
     form.querySelector('select[name="status"]').value = pizza.status
     form.querySelector('select[name="status"]').disabled = false
 }
@@ -502,8 +502,9 @@ function removeOptions() {
        selectElement.remove(i);
     }
  }
+var returnName = ""
 function getCustomerName(result){
-    var returnName = result[0].name
+    returnName = result[0].name
     console.log(returnName)
     return returnName
 }
