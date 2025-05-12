@@ -86,11 +86,12 @@ select { display: table-cell;}
 .highcharts-data-table table {
     font-family: Verdana, sans-serif;
     border-collapse: collapse;
-    border: 1px solid #ebebeb;
+    border: 1px solid #fcb9c5;
     margin: 10px auto;
     text-align: center;
     width: 100%;
     max-width: 500px;
+    fill: #fcb9c5
 }
 
 .highcharts-data-table caption {
