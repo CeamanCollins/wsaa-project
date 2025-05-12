@@ -121,14 +121,18 @@ class StudentDAO:
         self.closeAll()
         return "Deleted"
     
-    def getMetrics(self):
+    def getSizeMetrics(self):
         cursor = self.getCursor()
         sql = "SELECT size, COUNT(size) FROM pizzas GROUP BY size;"
         cursor.execute(sql)
-        result1 = cursor.fetchall()
+        result = cursor.fetchall()
+        return result
+    
+    def getBaseMetrics(self):
+        cursor = self.getCursor()
         sql = "SELECT base, COUNT(base) FROM pizzas GROUP BY base;"
         cursor.execute(sql)
-        result2 = cursor.fetchall()
-        return result1, result2
+        result = cursor.fetchall()
+        return result
 
 studentDAO = StudentDAO()
