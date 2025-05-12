@@ -643,6 +643,7 @@ function processBaseMetricsResponse(result){
 }
 
 function showHighcharts(){
+    initHighcharts()
     hideAll()
     document.getElementById('container1').style.display="inline-block"
     document.getElementById('container2').style.display="inline-block"
