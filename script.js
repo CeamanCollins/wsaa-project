@@ -22,7 +22,7 @@ function getCustomerById(id, callback){
             "data": "",
             "dataType": "JSON",
             "success": function(result){
-                callback(result)
+                return callback(result)
             },
             "error": function(xhr,status,error){
                 console.log("error: "+status+" message: "+error);
