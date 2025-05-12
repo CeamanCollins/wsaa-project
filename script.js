@@ -534,8 +534,9 @@ function processSizeMetricsResponse(result){
             y: item[1]
         };
     });
-    Highcharts.chart('container1', {
+    Highcharts.chart({
         chart: {
+            renderTo: 'container1',
             type: 'pie',
             zooming: {
                 type: 'xy'
@@ -590,8 +591,9 @@ function processBaseMetricsResponse(result){
             y: item[1]
         };
     });
-    Highcharts.chart('container2', {
+    Highcharts.chart({
         chart: {
+            renderTo: 'container2',
             type: 'pie',
             zooming: {
                 type: 'xy'
