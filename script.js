@@ -171,7 +171,7 @@ function deletePizza(id, callback){
 function getSizeMetrics(callback){
     $.ajax(
         {
-            "url" : "/pizzas/sizemetrics",
+            "url" : "/sizemetrics",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
@@ -187,7 +187,7 @@ function getSizeMetrics(callback){
 function getBaseMetrics(callback){
     $.ajax(
         {
-            "url" : "/pizzas/basemetrics",
+            "url" : "/basemetrics",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
