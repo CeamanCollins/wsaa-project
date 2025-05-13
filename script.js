@@ -502,6 +502,7 @@ function removeOptions() {
  }
 function selectCustomerName(result){
     var returnName = result[0].name
+    console.log(returnName)
     var form = document.getElementById('orderForm')
     form.querySelector('select[name="customer"]').value = returnName
 }
