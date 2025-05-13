@@ -500,12 +500,6 @@ function removeOptions() {
        selectElement.remove(i);
     }
  }
-// function selectCustomerName(result){
-//     var returnid = result[0].id
-//     console.log(returnName)
-//     var form = document.getElementById('orderForm')
-//     form.querySelector('select[name="customer"]').value = returnName
-// }
 function doNothing(result){
     return "done"
 }
