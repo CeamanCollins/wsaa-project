@@ -342,13 +342,13 @@ function getPizzaFromRow(rowElement){
 }
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
-    getCustomerById(pizza.customer, selectCustomerName)
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
     form.querySelector('select[name="size"]').value = pizza.size
     form.querySelector('select[name="base"]').value = pizza.base
     form.querySelector('input[name="toppings"]').value = pizza.toppings
     form.querySelector('select[name="status"]').value = pizza.status
+    form.querySelector('select[name="customer"]').value = pizza.customer
     form.querySelector('select[name="status"]').disabled = false
 }
 function populateFormWithCustomer(customer){
@@ -500,12 +500,12 @@ function removeOptions() {
        selectElement.remove(i);
     }
  }
-function selectCustomerName(result){
-    var returnName = result[0].name
-    console.log(returnName)
-    var form = document.getElementById('orderForm')
-    form.querySelector('select[name="customer"]').value = returnName
-}
+// function selectCustomerName(result){
+//     var returnid = result[0].id
+//     console.log(returnName)
+//     var form = document.getElementById('orderForm')
+//     form.querySelector('select[name="customer"]').value = returnName
+// }
 function doNothing(result){
     return "done"
 }
