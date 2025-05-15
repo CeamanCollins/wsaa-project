@@ -545,11 +545,12 @@ function populateCustomerId(result){
 // This function removes all options from the customer select element
 function removeOptions() {
     var selectElement = document.querySelector("#customerSelect")
-    var i, L = selectElement.options.length - 1;
+    var L = selectElement.options.length - 1;
     for(i = L; i >= 0; i--) {
        selectElement.remove(i);
     }
  }
+
 function doNothing(result){
     return "done"
 }
