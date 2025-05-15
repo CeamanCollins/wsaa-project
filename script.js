@@ -281,15 +281,17 @@ function showOrderForm(){
 async function showUpdatePizza(button){
     hideAll()
     removeOptions()
-    var rowElement = button.parentNode.parentNode
-    pizza = getPizzaFromRow(rowElement)
-    await getAllCustomers(populateCustomerId).then(populateFormWithPizza)
+    getAllCustomers(populateCustomerId)
+    await resolveAfterDelay()
     document.getElementById('orderInputID').style.display="block"
     document.getElementById('updateLabelPizza').style.display="block"
     document.getElementById('orderForm').style.display="inline-block"
     document.getElementById('doCreatePizzaButton').style.display="none"
     document.getElementById('doUpdatePizzaButton').style.display="block"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
+    var rowElement = button.parentNode.parentNode
+    pizza = getPizzaFromRow(rowElement)
+    populateFormWithPizza(pizza)
 }
 
 function showUpdateCustomer(button){
