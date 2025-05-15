@@ -3,6 +3,7 @@ import dao
 
 app = Flask(__name__, static_url_path='', static_folder='./')
 
+# Reference used: https://stackoverflow.com/questions/54446080/how-to-keep-order-of-sorted-dictionary-passed-to-jsonify-function
 app.json.sort_keys = False
 
 @app.route('/')

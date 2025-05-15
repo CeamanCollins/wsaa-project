@@ -14,6 +14,7 @@ function getAllCustomers(callback){
         }
     );
 }
+
 function getCustomerById(id, callback){
     $.ajax(
         {
@@ -30,6 +31,7 @@ function getCustomerById(id, callback){
         }
     );
 }
+
 function createCustomer(customer, callback){
     $.ajax(
         {
@@ -49,6 +51,7 @@ function createCustomer(customer, callback){
         }
     );
 }
+
 function updateCustomer(customer, callback){
     $.ajax(
         {
@@ -66,6 +69,7 @@ function updateCustomer(customer, callback){
         }
     );
 }
+
 function deleteCustomer(id, callback){
     $.ajax(
         {
@@ -83,6 +87,7 @@ function deleteCustomer(id, callback){
         }
     );
 }
+
 function getAllPizzas(callback){
     $.ajax(
         {
@@ -99,6 +104,7 @@ function getAllPizzas(callback){
         }
     );
 }
+
 function getPizzaById(id, callback){
     $.ajax(
         {
@@ -115,6 +121,7 @@ function getPizzaById(id, callback){
         }
     );
 }
+
 function createPizza(pizza, callback){
     $.ajax(
         {
@@ -134,6 +141,7 @@ function createPizza(pizza, callback){
         }
     );
 }
+
 function updatePizza(pizza, callback){
     $.ajax(
         {
@@ -151,6 +159,7 @@ function updatePizza(pizza, callback){
         }
     );
 }
+
 function deletePizza(id, callback){
     $.ajax(
         {
@@ -168,6 +177,7 @@ function deletePizza(id, callback){
         }
     );
 }
+
 function getSizeMetrics(callback){
     $.ajax(
         {
@@ -184,6 +194,7 @@ function getSizeMetrics(callback){
         }
     );
 }
+
 function getBaseMetrics(callback){
     $.ajax(
         {
@@ -200,6 +211,7 @@ function getBaseMetrics(callback){
         }
     );
 }
+
 function hideAll(){
     document.getElementById('charts').style.display="none"
     document.getElementById('viewAllPizzas').style.display="none"
@@ -208,6 +220,7 @@ function hideAll(){
     document.getElementById('orderForm').style.display="none"
     document.getElementById('registerInputID').style.display="none"
 }
+
 function clearRegisterForm(){
     var form = document.getElementById('registerForm')
     form.querySelector('input[name="id"]').disabled=false
@@ -217,6 +230,7 @@ function clearRegisterForm(){
     form.querySelector('input[name="phone"]').value=''
     form.querySelector('input[name="email"]').value=''
 }
+
 function clearOrderForm(){
     var form = document.getElementById('orderForm')
     form.querySelector('input[name="orderId"]').disabled=false
@@ -226,14 +240,17 @@ function clearOrderForm(){
     form.querySelector('select[name="customer"]').value=''
     form.querySelector('select[name="status"]').value='ordered'
 }
+
 function showViewAllPizzas(){
     hideAll()
     document.getElementById('viewAllPizzas').style.display="inline-block"
 }
+
 function showViewAllCustomers(){
     hideAll()
     document.getElementById('viewAllCustomers').style.display="inline-block"
 }
+
 function showRegisterForm(){
     hideAll()
     clearRegisterForm()
@@ -243,6 +260,7 @@ function showRegisterForm(){
     document.getElementById('doUpdateCustomerButton').style.display="none"
     document.getElementById('registerForm').style.display="block"
 }
+
 function showOrderForm(){
     hideAll()
     clearOrderForm()
@@ -256,6 +274,10 @@ function showOrderForm(){
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
 }
+
+// Reference used:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
 async function showUpdatePizza(button){
     hideAll()
     removeOptions()
@@ -271,6 +293,7 @@ async function showUpdatePizza(button){
     pizza = getPizzaFromRow(rowElement)
     populateFormWithPizza(pizza)
 }
+
 function showUpdateCustomer(button){
     hideAll()
     document.getElementById('create_label').style.display="none"
@@ -283,6 +306,7 @@ function showUpdateCustomer(button){
     customer = getCustomerFromRow(rowElement)
     populateFormWithCustomer(customer)
 }
+
 function getPizzaFromRow(rowElement){
     var pizza={}
     pizza.id = rowElement.cells[0].firstChild.textContent
@@ -292,6 +316,7 @@ function getPizzaFromRow(rowElement){
     pizza.customer = rowElement.cells[4].firstChild.textContent
     return pizza
 }
+
 function getCustomerFromRow(rowElement){
     var customer={}
     customer.id = rowElement.cells[0].firstChild.textContent
@@ -301,6 +326,7 @@ function getCustomerFromRow(rowElement){
     customer.email = rowElement.cells[4].firstChild.textContent
     return customer
 }
+
 function doUpdatePizza(){
     var pizza = getPizzaFromForm()
     var rowElement = document.getElementById('pizza'+pizza.id)
@@ -308,6 +334,7 @@ function doUpdatePizza(){
     updatePizza(pizza,doNothing())
     showViewAllPizzas()
 }
+
 function doUpdateCustomer(){
     var customer = getCustomerFromForm()
     var rowElement = document.getElementById('customer'+customer.id)
@@ -315,6 +342,7 @@ function doUpdateCustomer(){
     updateCustomer(customer,doNothing())
     showViewAllCustomers()
 }
+
 function setPizzaInRow(rowElement, pizza){
     rowElement.cells[0].firstChild.textContent = pizza.id
     rowElement.cells[1].firstChild.textContent = pizza.size 
@@ -323,6 +351,7 @@ function setPizzaInRow(rowElement, pizza){
     rowElement.cells[4].firstChild.textContent = pizza.status
     rowElement.cells[5].firstChild.textContent = pizza.customer
 }
+
 function setCustomerInRow(rowElement, customer){
     rowElement.cells[0].firstChild.textContent = customer.id
     rowElement.cells[1].firstChild.textContent = customer.name
@@ -330,6 +359,7 @@ function setCustomerInRow(rowElement, customer){
     rowElement.cells[3].firstChild.textContent = customer.phone
     rowElement.cells[4].firstChild.textContent = customer.email
 }
+
 function getPizzaFromRow(rowElement){
     var pizza={}
     pizza.id = rowElement.cells[0].firstChild.textContent
@@ -340,6 +370,7 @@ function getPizzaFromRow(rowElement){
     pizza.customer = rowElement.cells[5].firstChild.textContent
     return pizza
 }
+
 function populateFormWithPizza(pizza){
     var form = document.getElementById('orderForm')
     form.querySelector('input[name="orderId"]').disabled = true
@@ -351,6 +382,7 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="customer"]').value = pizza.customer
     form.querySelector('select[name="status"]').disabled = false
 }
+
 function populateFormWithCustomer(customer){
     var form = document.getElementById('registerForm')
     form.querySelector('input[name="id"]').disabled = true
@@ -360,6 +392,7 @@ function populateFormWithCustomer(customer){
     form.querySelector('input[name="phone"]').value = customer.phone
     form.querySelector('input[name="email"]').value = customer.email
 }
+
 function getPizzaFromForm(){
     var form = document.getElementById('orderForm')
     var pizza = {}
@@ -371,6 +404,7 @@ function getPizzaFromForm(){
     pizza.customer = form.querySelector('select[name="customer"]').value
     return pizza
 }
+
 function getCustomerFromForm(){
     var form = document.getElementById('registerForm')
     var customer = {}
@@ -381,6 +415,7 @@ function getCustomerFromForm(){
     customer.email = form.querySelector('input[name="email"]').value
     return customer
 }
+
 function addPizzaToTable(pizza){
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
@@ -404,6 +439,7 @@ function addPizzaToTable(pizza){
     var cell6 = rowElement.insertCell(7);
     cell6.innerHTML = '<button onclick=doDeletePizza(this)>Delete</button>'
 }
+
 function addCustomerToTable(customer){
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
@@ -425,16 +461,19 @@ function addCustomerToTable(customer){
     var cell6 = rowElement.insertCell(6);
     cell6.innerHTML = '<button onclick=doDeleteCustomer(this)>Delete</button>'
 }
+
 function doCreatePizza(){
     pizza = getPizzaFromForm()
     createPizza(pizza, doNothing)
     showViewAllPizzas()
 }
+
 function doCreateCustomer(){
     customer = getCustomerFromForm()
     createCustomer(customer, doNothing)
     showViewAllCustomers()
 }
+
 function doDeletePizza(buttonElement){
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
@@ -444,6 +483,7 @@ function doDeletePizza(buttonElement){
     tableElement.deleteRow(index)
     deletePizza(id)
 }
+
 function doDeleteCustomer(buttonElement){
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
@@ -452,18 +492,21 @@ function doDeleteCustomer(buttonElement){
     tableElement.deleteRow(index)
     deleteCustomer(id)
 }
+
 function processGetAllPizzasResponse(result){
     for (pizza of result){
         displayPizza = convertServerPizzaToDisplayPizza(pizza)
         addPizzaToTable(displayPizza)
     }
 }
+
 function processGetAllCustomersResponse(result){
     for (customer of result){
         displayCustomer = convertServerCustomertoDisplayCustomer(customer)
         addCustomerToTable(displayCustomer)
     }
 }
+
 function convertServerPizzaToDisplayPizza(pizza){
     displayPizza = {}
     displayPizza.id = pizza['id']
@@ -474,6 +517,7 @@ function convertServerPizzaToDisplayPizza(pizza){
     displayPizza.customer = pizza['customer']
     return displayPizza
 }
+
 function convertServerCustomertoDisplayCustomer(customer){
     displayCustomer = {}
     displayCustomer.id = customer['id']
@@ -483,6 +527,9 @@ function convertServerCustomertoDisplayCustomer(customer){
     displayCustomer.email = customer['email']
     return displayCustomer
 }
+
+// Code generated contextually by Copilot
+// This function populates the customer select element with the customers
 function populateCustomerId(result){
     var select = document.querySelector("#customerSelect")
     for (customer of result){
@@ -493,6 +540,9 @@ function populateCustomerId(result){
         select.appendChild(option);
     }
 }
+
+// Code generated contextually by Copilot
+// This function removes all options from the customer select element
 function removeOptions() {
     var selectElement = document.querySelector("#customerSelect")
     var i, L = selectElement.options.length - 1;
@@ -504,6 +554,8 @@ function doNothing(result){
     return "done"
 }
 
+// Reference used:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 function resolveAfterDelay(){
     return new Promise(resolve => {
         setTimeout(() => {
@@ -517,6 +569,9 @@ function initHighcharts(){
     getBaseMetrics(processBaseMetricsResponse)
 }
 
+// Reference used:
+// https://www.highcharts.com/demo/highcharts/pie-chart
+// Code generated contextually by Copilot
 function processSizeMetricsResponse(result){
     var data1 = result.map(function(item) {
         return {
@@ -574,6 +629,7 @@ function processSizeMetricsResponse(result){
         }]
     });
 }
+
 function processBaseMetricsResponse(result){
     var data2 = result.map(function(item) {
         return {
@@ -638,5 +694,4 @@ function showHighcharts(){
     initHighcharts()
     hideAll()
     document.getElementById('charts').style.display="inline-block"
-    initHighcharts()
 }

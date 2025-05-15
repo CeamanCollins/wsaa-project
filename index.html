@@ -13,8 +13,10 @@
         <link rel="stylesheet" type="text/css" href="./style.css" />
     </head>
     <body>
+        <!-- Reference used: I pasted code into chatgpt and asked it to make it prettier, it suggested this container-->
         <div class="container text-center">
         <h1><img src="./logo.png"  alt="Speedy Pizzas Logo" class="img-fluid"></h1>
+        <!-- Reference used: https://www.w3schools.com/howto/howto_js_tabs.asp -->
         <div id="menuButtons" class="tab">
             <button id="viewCustomersButton" onclick="showViewAllCustomers()">View All Customers</button>
             <button id="registerButton" onclick="showRegisterForm()">Register as Customer</button>
@@ -59,6 +61,8 @@
             </h2>
             <span id="registerInputID" style="display: none;">ID<input type="text" name="id"></span>
             <div style="text-align: left;">
+            <!-- Reference used: https://stackoverflow.com/questions/10985802/why-does-a-button-cause-my-whole-web-page-to-reload -->
+             <!-- I moved the buttons outside the form to stop the page reloading on customer creation-->
             <form style="align-content: center;">
                 <p>
                 <label>Name</label>
