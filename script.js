@@ -281,17 +281,15 @@ function showOrderForm(){
 async function showUpdatePizza(button){
     hideAll()
     removeOptions()
-    getAllCustomers(populateCustomerId)
-    await resolveAfterDelay()
+    var rowElement = button.parentNode.parentNode
+    pizza = getPizzaFromRow(rowElement)
+    await getAllCustomers(populateCustomerId).then(populateFormWithPizza)
     document.getElementById('orderInputID').style.display="block"
     document.getElementById('updateLabelPizza').style.display="block"
     document.getElementById('orderForm').style.display="inline-block"
     document.getElementById('doCreatePizzaButton').style.display="none"
     document.getElementById('doUpdatePizzaButton').style.display="block"
     document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
-    var rowElement = button.parentNode.parentNode
-    pizza = getPizzaFromRow(rowElement)
-    populateFormWithPizza(pizza)
 }
 
 function showUpdateCustomer(button){
@@ -533,10 +531,10 @@ function convertServerCustomertoDisplayCustomer(customer){
 function populateCustomerId(result){
     var select = document.querySelector("#customerSelect")
     for (customer of result){
-        let display_customer = convertServerCustomertoDisplayCustomer(customer)
+        let displayCustomer = convertServerCustomertoDisplayCustomer(customer)
         let option = document.createElement("option");
-        option.text = display_customer.name;
-        option.value = display_customer.id;
+        option.text = displayCustomer.name;
+        option.value = displayCustomer.id;
         select.appendChild(option);
     }
 }
