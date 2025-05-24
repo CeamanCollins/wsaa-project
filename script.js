@@ -1,314 +1,314 @@
-function getAllCustomers(callback){
+function getAllCustomers(callback) {
     $.ajax(
         {
-            "url" : "/customers",
+            "url": "/customers",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function getCustomerById(id, callback){
+function getCustomerById(id, callback) {
     $.ajax(
         {
-            "url" : "/customers/"+id,
+            "url": "/customers/" + id,
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function createCustomer(customer, callback){
+function createCustomer(customer, callback) {
     $.ajax(
         {
-            "url" : "/customers/",
+            "url": "/customers/",
             "method": "POST",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
                 customer.id = result.id
                 addCustomerToTable(customer)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function updateCustomer(customer, callback){
+function updateCustomer(customer, callback) {
     $.ajax(
         {
-            "url" : "/customers/",
+            "url": "/customers/",
             "method": "PUT",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function deleteCustomer(id, callback){
+function deleteCustomer(id, callback) {
     $.ajax(
         {
-            "url" : "/customers/"+id,
+            "url": "/customers/" + id,
             "method": "DELETE",
             "data": "",
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function getAllPizzas(callback){
+function getAllPizzas(callback) {
     $.ajax(
         {
-            "url" : "/pizzas",
+            "url": "/pizzas",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function getPizzaById(id, callback){
+function getPizzaById(id, callback) {
     $.ajax(
         {
-            "url" : "/pizzas/"+id,
+            "url": "/pizzas/" + id,
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function createPizza(pizza, callback){
+function createPizza(pizza, callback) {
     $.ajax(
         {
-            "url" : "/pizzas/",
+            "url": "/pizzas/",
             "method": "POST",
             "data": JSON.stringify(pizza),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
                 pizza.id = result.id
                 addPizzaToTable(pizza)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function updatePizza(pizza, callback){
+function updatePizza(pizza, callback) {
     $.ajax(
         {
-            "url" : "/pizzas/",
+            "url": "/pizzas/",
             "method": "PUT",
             "data": JSON.stringify(pizza),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function deletePizza(id, callback){
+function deletePizza(id, callback) {
     $.ajax(
         {
-            "url" : "/pizzas/"+id,
+            "url": "/pizzas/" + id,
             "method": "DELETE",
             "data": "",
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function getSizeMetrics(callback){
+function getSizeMetrics(callback) {
     $.ajax(
         {
-            "url" : "/sizemetrics",
+            "url": "/sizemetrics",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function getBaseMetrics(callback){
+function getBaseMetrics(callback) {
     $.ajax(
         {
-            "url" : "/basemetrics",
+            "url": "/basemetrics",
             "method": "GET",
             "data": "",
             "dataType": "JSON",
-            "success": function(result){
+            "success": function (result) {
                 callback(result)
             },
-            "error": function(xhr,status,error){
-                console.log("error: "+status+" message: "+error);
+            "error": function (xhr, status, error) {
+                console.log("error: " + status + " message: " + error);
             }
         }
     );
 }
 
-function hideAll(){
-    document.getElementById('charts').style.display="none"
-    document.getElementById('viewAllPizzas').style.display="none"
-    document.getElementById('viewAllCustomers').style.display="none"
-    document.getElementById('registerForm').style.display="none"
-    document.getElementById('orderForm').style.display="none"
-    document.getElementById('registerInputID').style.display="none"
+function hideAll() {
+    document.getElementById('charts').style.display = "none"
+    document.getElementById('viewAllPizzas').style.display = "none"
+    document.getElementById('viewAllCustomers').style.display = "none"
+    document.getElementById('registerForm').style.display = "none"
+    document.getElementById('orderForm').style.display = "none"
+    document.getElementById('registerInputID').style.display = "none"
 }
 
-function clearRegisterForm(){
+function clearRegisterForm() {
     var form = document.getElementById('registerForm')
-    form.querySelector('input[name="id"]').disabled=false
-    form.querySelector('input[name="id"]').value=''
-    form.querySelector('input[name="name"]').value=''
-    form.querySelector('input[name="address"]').value=''
-    form.querySelector('input[name="phone"]').value=''
-    form.querySelector('input[name="email"]').value=''
+    form.querySelector('input[name="id"]').disabled = false
+    form.querySelector('input[name="id"]').value = ''
+    form.querySelector('input[name="name"]').value = ''
+    form.querySelector('input[name="address"]').value = ''
+    form.querySelector('input[name="phone"]').value = ''
+    form.querySelector('input[name="email"]').value = ''
 }
 
-function clearOrderForm(){
+function clearOrderForm() {
     var form = document.getElementById('orderForm')
-    form.querySelector('input[name="orderId"]').disabled=false
-    form.querySelector('select[name="size"]').value='12"'
-    form.querySelector('select[name="base"]').value='normal'
-    form.querySelector('input[name="toppings"]').value=''
-    form.querySelector('select[name="customer"]').value=''
-    form.querySelector('select[name="status"]').value='ordered'
+    form.querySelector('input[name="orderId"]').disabled = false
+    form.querySelector('select[name="size"]').value = '12"'
+    form.querySelector('select[name="base"]').value = 'normal'
+    form.querySelector('input[name="toppings"]').value = ''
+    form.querySelector('select[name="customer"]').value = ''
+    form.querySelector('select[name="status"]').value = 'ordered'
 }
 
-function showViewAllPizzas(){
+function showViewAllPizzas() {
     hideAll()
-    document.getElementById('viewAllPizzas').style.display="inline-block"
+    document.getElementById('viewAllPizzas').style.display = "inline-block"
 }
 
-function showViewAllCustomers(){
+function showViewAllCustomers() {
     hideAll()
-    document.getElementById('viewAllCustomers').style.display="inline-block"
+    document.getElementById('viewAllCustomers').style.display = "inline-block"
 }
 
-function showRegisterForm(){
+function showRegisterForm() {
     hideAll()
     clearRegisterForm()
-    document.getElementById('create_label').style.display="inline-block"
-    document.getElementById('update_label').style.display="none"
-    document.getElementById('doCreateCustomerButton').style.display="inline-block"
-    document.getElementById('doUpdateCustomerButton').style.display="none"
-    document.getElementById('registerForm').style.display="block"
+    document.getElementById('create_label').style.display = "inline-block"
+    document.getElementById('update_label').style.display = "none"
+    document.getElementById('doCreateCustomerButton').style.display = "inline-block"
+    document.getElementById('doUpdateCustomerButton').style.display = "none"
+    document.getElementById('registerForm').style.display = "block"
 }
 
-function showOrderForm(){
+function showOrderForm() {
     hideAll()
     clearOrderForm()
     removeOptions()
     getAllCustomers(populateCustomerId)
-    document.getElementById('orderInputID').style.display="none"
-    document.getElementById('updateLabelPizza').style.display="none"
-    document.getElementById('orderForm').style.display="inline-block"
-    document.getElementById('doCreatePizzaButton').style.display="inline-block"
-    document.getElementById('doUpdatePizzaButton').style.display="none"
+    document.getElementById('orderInputID').style.display = "none"
+    document.getElementById('updateLabelPizza').style.display = "none"
+    document.getElementById('orderForm').style.display = "inline-block"
+    document.getElementById('doCreatePizzaButton').style.display = "inline-block"
+    document.getElementById('doUpdatePizzaButton').style.display = "none"
     document.getElementById('orderForm').querySelector('select[name="status"]').value = "ordered"
-    document.getElementById('orderForm').querySelector('select[name="status"]').disabled=true
+    document.getElementById('orderForm').querySelector('select[name="status"]').disabled = true
 }
 
 // Reference used:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
-async function showUpdatePizza(button){
+async function showUpdatePizza(button) {
     hideAll()
     removeOptions()
     getAllCustomers(populateCustomerId)
     await resolveAfterDelay()
-    document.getElementById('orderInputID').style.display="block"
-    document.getElementById('updateLabelPizza').style.display="block"
-    document.getElementById('orderForm').style.display="inline-block"
-    document.getElementById('doCreatePizzaButton').style.display="none"
-    document.getElementById('doUpdatePizzaButton').style.display="block"
-    document.getElementById('orderForm').querySelector('select[name="status"]').disabled=false
+    document.getElementById('orderInputID').style.display = "block"
+    document.getElementById('updateLabelPizza').style.display = "block"
+    document.getElementById('orderForm').style.display = "inline-block"
+    document.getElementById('doCreatePizzaButton').style.display = "none"
+    document.getElementById('doUpdatePizzaButton').style.display = "block"
+    document.getElementById('orderForm').querySelector('select[name="status"]').disabled = false
     var rowElement = button.parentNode.parentNode
     pizza = getPizzaFromRow(rowElement)
     populateFormWithPizza(pizza)
 }
 
-function showUpdateCustomer(button){
+function showUpdateCustomer(button) {
     hideAll()
-    document.getElementById('create_label').style.display="none"
-    document.getElementById('update_label').style.display="inline-block"
-    document.getElementById('registerInputID').style.display="block"
-    document.getElementById('registerForm').style.display="block"
-    document.getElementById('doCreateCustomerButton').style.display="none"
-    document.getElementById('doUpdateCustomerButton').style.display="inline-block"
+    document.getElementById('create_label').style.display = "none"
+    document.getElementById('update_label').style.display = "inline-block"
+    document.getElementById('registerInputID').style.display = "block"
+    document.getElementById('registerForm').style.display = "block"
+    document.getElementById('doCreateCustomerButton').style.display = "none"
+    document.getElementById('doUpdateCustomerButton').style.display = "inline-block"
     var rowElement = button.parentNode.parentNode
     customer = getCustomerFromRow(rowElement)
     populateFormWithCustomer(customer)
 }
 
-function getPizzaFromRow(rowElement){
-    var pizza={}
+function getPizzaFromRow(rowElement) {
+    var pizza = {}
     pizza.id = rowElement.cells[0].firstChild.textContent
     pizza.size = rowElement.cells[1].firstChild.textContent
     pizza.base = rowElement.cells[2].firstChild.textContent
@@ -317,8 +317,8 @@ function getPizzaFromRow(rowElement){
     return pizza
 }
 
-function getCustomerFromRow(rowElement){
-    var customer={}
+function getCustomerFromRow(rowElement) {
+    var customer = {}
     customer.id = rowElement.cells[0].firstChild.textContent
     customer.name = rowElement.cells[1].firstChild.textContent
     customer.address = rowElement.cells[2].firstChild.textContent
@@ -327,32 +327,32 @@ function getCustomerFromRow(rowElement){
     return customer
 }
 
-function doUpdatePizza(){
+function doUpdatePizza() {
     var pizza = getPizzaFromForm()
-    var rowElement = document.getElementById('pizza'+pizza.id)
+    var rowElement = document.getElementById('pizza' + pizza.id)
     setPizzaInRow(rowElement, pizza)
-    updatePizza(pizza,doNothing())
+    updatePizza(pizza, doNothing())
     showViewAllPizzas()
 }
 
-function doUpdateCustomer(){
+function doUpdateCustomer() {
     var customer = getCustomerFromForm()
-    var rowElement = document.getElementById('customer'+customer.id)
+    var rowElement = document.getElementById('customer' + customer.id)
     setCustomerInRow(rowElement, customer)
-    updateCustomer(customer,doNothing())
+    updateCustomer(customer, doNothing())
     showViewAllCustomers()
 }
 
-function setPizzaInRow(rowElement, pizza){
+function setPizzaInRow(rowElement, pizza) {
     rowElement.cells[0].firstChild.textContent = pizza.id
-    rowElement.cells[1].firstChild.textContent = pizza.size 
+    rowElement.cells[1].firstChild.textContent = pizza.size
     rowElement.cells[2].firstChild.textContent = pizza.base
     rowElement.cells[3].firstChild.textContent = pizza.toppings
     rowElement.cells[4].firstChild.textContent = pizza.status
     rowElement.cells[5].firstChild.textContent = pizza.customer
 }
 
-function setCustomerInRow(rowElement, customer){
+function setCustomerInRow(rowElement, customer) {
     rowElement.cells[0].firstChild.textContent = customer.id
     rowElement.cells[1].firstChild.textContent = customer.name
     rowElement.cells[2].firstChild.textContent = customer.address
@@ -360,8 +360,8 @@ function setCustomerInRow(rowElement, customer){
     rowElement.cells[4].firstChild.textContent = customer.email
 }
 
-function getPizzaFromRow(rowElement){
-    var pizza={}
+function getPizzaFromRow(rowElement) {
+    var pizza = {}
     pizza.id = rowElement.cells[0].firstChild.textContent
     pizza.size = rowElement.cells[1].firstChild.textContent
     pizza.base = rowElement.cells[2].firstChild.textContent
@@ -371,7 +371,7 @@ function getPizzaFromRow(rowElement){
     return pizza
 }
 
-function populateFormWithPizza(pizza){
+function populateFormWithPizza(pizza) {
     var form = document.getElementById('orderForm')
     form.querySelector('input[name="orderId"]').disabled = true
     form.querySelector('input[name="orderId"]').value = pizza.id
@@ -383,7 +383,7 @@ function populateFormWithPizza(pizza){
     form.querySelector('select[name="status"]').disabled = false
 }
 
-function populateFormWithCustomer(customer){
+function populateFormWithCustomer(customer) {
     var form = document.getElementById('registerForm')
     form.querySelector('input[name="id"]').disabled = true
     form.querySelector('input[name="id"]').value = customer.id
@@ -393,7 +393,7 @@ function populateFormWithCustomer(customer){
     form.querySelector('input[name="email"]').value = customer.email
 }
 
-function getPizzaFromForm(){
+function getPizzaFromForm() {
     var form = document.getElementById('orderForm')
     var pizza = {}
     pizza.id = form.querySelector('input[name="orderId"]').value
@@ -405,7 +405,7 @@ function getPizzaFromForm(){
     return pizza
 }
 
-function getCustomerFromForm(){
+function getCustomerFromForm() {
     var form = document.getElementById('registerForm')
     var customer = {}
     customer.id = form.querySelector('input[name="id"]').value
@@ -416,12 +416,12 @@ function getCustomerFromForm(){
     return customer
 }
 
-function addPizzaToTable(pizza){
+function addPizzaToTable(pizza) {
     var tableElement = document.getElementById('pizzaTable')
     var rowElement = tableElement.insertRow(-1)
-    
-    rowElement.setAttribute('id', 'pizza'+pizza.id)
-    
+
+    rowElement.setAttribute('id', 'pizza' + pizza.id)
+
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = pizza.id
     var cell2 = rowElement.insertCell(1);
@@ -440,11 +440,11 @@ function addPizzaToTable(pizza){
     cell6.innerHTML = '<button onclick=doDeletePizza(this)>Delete</button>'
 }
 
-function addCustomerToTable(customer){
+function addCustomerToTable(customer) {
     var tableElement = document.getElementById('customerTable')
     var rowElement = tableElement.insertRow(-1)
 
-    rowElement.setAttribute('id','customer'+customer.id)
+    rowElement.setAttribute('id', 'customer' + customer.id)
 
     var cell1 = rowElement.insertCell(0);
     cell1.innerHTML = customer.id
@@ -462,19 +462,19 @@ function addCustomerToTable(customer){
     cell6.innerHTML = '<button onclick=doDeleteCustomer(this)>Delete</button>'
 }
 
-function doCreatePizza(){
+function doCreatePizza() {
     pizza = getPizzaFromForm()
     createPizza(pizza, doNothing)
     showViewAllPizzas()
 }
 
-function doCreateCustomer(){
+function doCreateCustomer() {
     customer = getCustomerFromForm()
     createCustomer(customer, doNothing)
     showViewAllCustomers()
 }
 
-function doDeletePizza(buttonElement){
+function doDeletePizza(buttonElement) {
     var tableElement = document.getElementById('pizzaTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
@@ -484,7 +484,7 @@ function doDeletePizza(buttonElement){
     deletePizza(id)
 }
 
-function doDeleteCustomer(buttonElement){
+function doDeleteCustomer(buttonElement) {
     var tableElement = document.getElementById('customerTable')
     var index = buttonElement.parentNode.parentNode.rowIndex;
     var rowElement = buttonElement.parentNode.parentNode;
@@ -493,21 +493,21 @@ function doDeleteCustomer(buttonElement){
     deleteCustomer(id)
 }
 
-function processGetAllPizzasResponse(result){
-    for (pizza of result){
+function processGetAllPizzasResponse(result) {
+    for (pizza of result) {
         displayPizza = convertServerPizzaToDisplayPizza(pizza)
         addPizzaToTable(displayPizza)
     }
 }
 
-function processGetAllCustomersResponse(result){
-    for (customer of result){
+function processGetAllCustomersResponse(result) {
+    for (customer of result) {
         displayCustomer = convertServerCustomertoDisplayCustomer(customer)
         addCustomerToTable(displayCustomer)
     }
 }
 
-function convertServerPizzaToDisplayPizza(pizza){
+function convertServerPizzaToDisplayPizza(pizza) {
     displayPizza = {}
     displayPizza.id = pizza['id']
     displayPizza.size = pizza['size']
@@ -518,7 +518,7 @@ function convertServerPizzaToDisplayPizza(pizza){
     return displayPizza
 }
 
-function convertServerCustomertoDisplayCustomer(customer){
+function convertServerCustomertoDisplayCustomer(customer) {
     displayCustomer = {}
     displayCustomer.id = customer['id']
     displayCustomer.name = customer['name']
@@ -530,9 +530,9 @@ function convertServerCustomertoDisplayCustomer(customer){
 
 // Code generated contextually by Copilot
 // This function populates the customer select element with the customers
-function populateCustomerId(result){
+function populateCustomerId(result) {
     var select = document.querySelector("#customerSelect")
-    for (customer of result){
+    for (customer of result) {
         let displayCustomer = convertServerCustomertoDisplayCustomer(customer)
         let option = document.createElement("option");
         option.text = displayCustomer.name;
@@ -546,18 +546,18 @@ function populateCustomerId(result){
 function removeOptions() {
     var selectElement = document.querySelector("#customerSelect")
     var L = selectElement.options.length - 1;
-    for(i = L; i >= 0; i--) {
-       selectElement.remove(i);
+    for (i = L; i >= 0; i--) {
+        selectElement.remove(i);
     }
- }
+}
 
-function doNothing(result){
+function doNothing(result) {
     return "done"
 }
 
 // Reference used:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-function resolveAfterDelay(){
+function resolveAfterDelay() {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve("done");
@@ -565,7 +565,7 @@ function resolveAfterDelay(){
     });
 }
 
-function initHighcharts(){
+function initHighcharts() {
     getSizeMetrics(processSizeMetricsResponse)
     getBaseMetrics(processBaseMetricsResponse)
 }
@@ -573,8 +573,8 @@ function initHighcharts(){
 // Reference used:
 // https://www.highcharts.com/demo/highcharts/pie-chart
 // Code generated contextually by Copilot
-function processSizeMetricsResponse(result){
-    var data1 = result.map(function(item) {
+function processSizeMetricsResponse(result) {
+    var data1 = result.map(function (item) {
         return {
             name: item[0],
             y: item[1]
@@ -623,16 +623,16 @@ function processSizeMetricsResponse(result){
                 }]
             }
         },
-        series:[{
-            name:'Percentage',
-            colorByPoint:true,
-            data:data1
+        series: [{
+            name: 'Percentage',
+            colorByPoint: true,
+            data: data1
         }]
     });
 }
 
-function processBaseMetricsResponse(result){
-    var data2 = result.map(function(item) {
+function processBaseMetricsResponse(result) {
+    var data2 = result.map(function (item) {
         return {
             name: item[0],
             y: item[1]
@@ -681,18 +681,16 @@ function processBaseMetricsResponse(result){
                 }]
             }
         },
-        series:[{
-            name:'Percentage',
-            colorByPoint:true,
-            data:data2
+        series: [{
+            name: 'Percentage',
+            colorByPoint: true,
+            data: data2
         }]
-    
-
     });
 }
 
-function showHighcharts(){
+function showHighcharts() {
     initHighcharts()
     hideAll()
-    document.getElementById('charts').style.display="inline-block"
+    document.getElementById('charts').style.display = "inline-block"
 }
