@@ -48,3 +48,9 @@ In the latter stages of development, GitHub Copilot was utilized for code enhanc
 
 - Initial work began in another repository: [Previous Repository](https://github.com/CeamanCollins/wsaa-coursework). Early commits specific to the work can be found there. Access on request.
 - The project incorporates various software development practices to ensure modularity and ease of maintenance.
+
+---
+
+## Contact
+
+For any issues or questions regarding this project, please feel free to contact **Céaman Collins**, the sole contributor. You can reach out via GitHub.
